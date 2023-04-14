@@ -4,6 +4,7 @@
 #include "RobotFactory.h"
 #include "HumanFactory.h"
 #include "HelicopterFactory.h"
+#include "ChargingStationFactory.h"
 
 SimulationModel::SimulationModel(IController& controller)
     : controller(controller) {
@@ -12,6 +13,7 @@ SimulationModel::SimulationModel(IController& controller)
   AddFactory(new RobotFactory());
   AddFactory(new HumanFactory());
   AddFactory(new HelicopterFactory());
+  AddFactory(new ChargingStationFactory());
 }
 
 SimulationModel::~SimulationModel() {
@@ -21,6 +23,9 @@ SimulationModel::~SimulationModel() {
   }
   for (int i = 0; i < scheduler.size(); i++) {
     delete scheduler[i];
+  }
+  for(int i =0;i< chargingStations.size();i++){
+    delete chargingStations[i];
   }
   delete graph;
   delete compFactory;
@@ -38,6 +43,12 @@ void SimulationModel::CreateEntity(JsonObject& entity) {
   // Call AddEntity to add it to the view
   controller.AddEntity(*myNewEntity);
   entities.push_back(myNewEntity);
+  
+  // add entity to charing station if it is a charging station;
+  if(type.compare("charging station")==0){
+    std::cout << "adding a new charing station " << std::endl;
+    chargingStations.push_back(myNewEntity);
+  }
 }
 
 /// Schedules a trip for an object in the scene
@@ -66,7 +77,14 @@ void SimulationModel::ScheduleTrip(JsonObject& details) {
 /// Updates the simulation
 void SimulationModel::Update(double dt) {
   for (int i = 0; i < entities.size(); i++) {
-    entities[i]->Update(dt, scheduler);
+    JsonObject detailsTemp = entities[i]->GetDetails();
+    std::string typeTemp = detailsTemp["type"];
+    if(typeTemp.compare("drone")==0){
+      entities[i]->Update(dt,scheduler,chargingStations);
+    }
+    else{
+      entities[i]->Update(dt, scheduler);
+    }
     controller.UpdateEntity(*entities[i]);
   }
 }
