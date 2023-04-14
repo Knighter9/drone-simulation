@@ -66,6 +66,7 @@ class SimulationModel {
   IController& controller;
   std::vector<IEntity*> entities;
   std::vector<IEntity*> scheduler;
+  std::vector<IEntity*> chargingStations;
   const IGraph* graph;
   CompositeFactory* compFactory;
 };

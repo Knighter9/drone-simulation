@@ -4,6 +4,7 @@
 #include <vector>
 
 #include "IEntityFactory.h"
+#include "BatteryDecorator.h"
 #include "Drone.h"
 
 /**
