@@ -2,108 +2,13 @@
     {
         "command": "CreateEntity",
       	"params": {
-            "type": "charging station",
-            "name": "charging station 1",
-            "mesh": "assets/model/recharge_station.glb",
-            "position": [800, 270, 800],
-      	    "scale": [2, 2, 2],
-            "offset": [0, -0.5, 0]
-    	  }
-    },
-    {
-        "command": "CreateEntity",
-      	"params": {
-            "type": "charging station",
-            "name": "charging station 2",
-            "mesh": "assets/model/recharge_station.glb",
-            "position": [498.292, 270, -228.623],
-      	    "scale": [2, 2, 2],
-            "offset": [0, -0.5, 0]
-    	  }
-    },
-    {
-        "command": "CreateEntity",
-      	"params": {
-            "type": "charging station",
-            "name": "charging station 3",
-            "mesh": "assets/model/recharge_station.glb",
-            "position": [-800, 270, 800],
-      	    "scale": [2, 2, 2],
-            "offset": [0, -0.5, 0]
-    	  }
-    },
-    {
-        "command": "CreateEntity",
-      	"params": {
-            "type": "charging station",
-            "name": "charging station 4",
-            "mesh": "assets/model/recharge_station.glb",
-            "position": [800, 270, -800],
-      	    "scale": [2, 2, 2],
-            "offset": [0, -0.5, 0]
-    	  }
-    },
-    {
-        "command": "CreateEntity",
-      	"params": {
       	    "type": "drone",
-            "name": "Drone 1",
+            "name": "Drone",
       	    "mesh": "assets/model/drone.glb",
+      	    "position": [498.292, 270, -228.623],
       	    "scale": [0.1, 0.1, 0.1],
       	    "rotation": [0, 0, 0, 0],
             "direction": [1,0,0],
-            "position": [498.292, 270, -228.623],
-            "speed": 30.0,
-            "radius": 1.0,
-      	    "start": 2.0,
-      	    "duration": 2.0,
-            "offset": [0, 0.6, 0]
-    	  }
-    },
-    {
-        "command": "CreateEntity",
-      	"params": {
-      	    "type": "drone",
-            "name": "Drone 2",
-      	    "mesh": "assets/model/drone.glb",
-      	    "scale": [0.1, 0.1, 0.1],
-      	    "rotation": [0, 0, 0, 0],
-            "direction": [1,0,0],
-            "position": [498.292, 270, -228.623],
-            "speed": 30.0,
-            "radius": 1.0,
-      	    "start": 2.0,
-      	    "duration": 2.0,
-            "offset": [0, 0.6, 0]
-    	  }
-    },
-    {
-        "command": "CreateEntity",
-      	"params": {
-      	    "type": "drone",
-            "name": "Drone 3",
-      	    "mesh": "assets/model/drone.glb",
-      	    "scale": [0.1, 0.1, 0.1],
-      	    "rotation": [0, 0, 0, 0],
-            "direction": [1,0,0],
-            "position": [498.292, 270, -228.623],
-            "speed": 30.0,
-            "radius": 1.0,
-      	    "start": 2.0,
-      	    "duration": 2.0,
-            "offset": [0, 0.6, 0]
-    	  }
-    },
-    {
-        "command": "CreateEntity",
-      	"params": {
-      	    "type": "drone",
-            "name": "Drone 4",
-      	    "mesh": "assets/model/drone.glb",
-      	    "scale": [0.1, 0.1, 0.1],
-      	    "rotation": [0, 0, 0, 0],
-            "direction": [1,0,0],
-            "position": [498.292, 270, -228.623],
             "speed": 30.0,
             "radius": 1.0,
       	    "start": 2.0,

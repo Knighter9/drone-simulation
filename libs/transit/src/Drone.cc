@@ -11,10 +11,9 @@
 #include "JumpDecorator.h"
 #include "SpinDecorator.h"
 
-
 Drone::Drone(JsonObject& obj) : details(obj) {
-  // creating random position
-  position = {Random(-1400, 1500), 270, Random(-800, 800)};
+  JsonArray pos(obj["position"]);
+  position = {pos[0], pos[1], pos[2]};
   JsonArray dir(obj["direction"]);
   direction = {dir[0], dir[1], dir[2]};
 
@@ -32,7 +31,6 @@ Drone::~Drone() {
 }
 
 void Drone::GetNearestEntity(std::vector<IEntity*> scheduler) {
- // std::cout<< "func is running ran" << std::endl;
   float minDis = std::numeric_limits<float>::max();
   for (auto entity : scheduler) {
     if (entity->GetAvailability()) {
@@ -72,9 +70,7 @@ void Drone::GetNearestEntity(std::vector<IEntity*> scheduler) {
 
 void Drone::Update(double dt, std::vector<IEntity*> scheduler) {
   if (available)
-    //std::cout<< "Drone about to call it get Nearest Entity func" << std::endl;
     GetNearestEntity(scheduler);
-    //std::cout<< "it ran" << std::endl;
 
   if (toRobot) {
     toRobot->Move(this, dt);

@@ -109,15 +109,11 @@ class IEntity {
    */
   virtual void Update(double dt, std::vector<IEntity*> scheduler) {}
 
-  // maybe a dumb fix 
-  virtual void Update(double dt, std::vector<IEntity*> scheduler,std::vector<IEntity*> chargingStations) {}
-
   /**
    * @brief Sets the graph object used by the entity in the simulation.
    * @param graph The IGraph object to be used.
    */
-  virtual void SetGraph(const IGraph* graph){ 
-    this->graph = graph; }
+  void SetGraph(const IGraph* graph) { this->graph = graph; }
 
   /**
    * @brief Sets the position of the entity.
@@ -154,8 +150,6 @@ class IEntity {
    * @param height The height to make the entity jump.
    */
   virtual void Jump(double height) {}
-
-  virtual void GetNearestChargingStation(){}
 
   virtual float Random(float Min, float Max) {
     return ((float(rand()) / float(RAND_MAX)) * (Max - Min)) + Min;
