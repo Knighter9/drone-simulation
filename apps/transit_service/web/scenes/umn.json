@@ -16,7 +16,7 @@
             "type": "charging station",
             "name": "charging station 2",
             "mesh": "assets/model/recharge_station.glb",
-            "position": [498.292, 270, -228.623],
+            "position": [-800, 270, -800],
       	    "scale": [2, 2, 2],
             "offset": [0, -0.5, 0]
     	  }

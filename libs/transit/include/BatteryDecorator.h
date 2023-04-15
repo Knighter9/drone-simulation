@@ -27,6 +27,8 @@ class BatteryDecorator: public IEntityBaseDecorator{
 
         void GetNearestChargingStation(std::vector<IEntity*> chargingStations);
 
+        bool NextPickupPossible(double dt, std::vector<IEntity*> scheduler);
+
      private: 
         float batteryLife;// 100 will be fully charged. 0 will be empty.
         bool charging;
