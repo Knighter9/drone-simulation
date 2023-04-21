@@ -1,3 +1,5 @@
+#include "DataCollection.h"
+
 // I have no idea how I'm going to implement this quite yet.
 
 void DataCollection::CollectData() {

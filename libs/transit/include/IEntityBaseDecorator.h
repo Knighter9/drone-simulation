@@ -1,56 +1,61 @@
 #ifndef IEntityBase_DECORATOR_H_
-#define IEneityBase_DECORATOR_H_
+#define IEntityBase_DECORATOR_H_
 
 #include "IEntity.h"
 #include "Drone.h"
 
-// basic decorator for which we can implement concrete decorators like a battery. 
-// the batter decorator will implment this abstract decorator. 
+/**
+ * @class IEntityBaseDecorator
+ * @brief Basic decorator for which we can implement concrete decorators like
+ * a battery. The battery decorator will implment this abstract decorator.
+ */
 class IEntityBaseDecorator : public IEntity {
-    protected: 
-        IEntity* entity;
+ public: 
+  /**
+   * @brief Construct a new IEntity Decorator object
+   * @param entity The entity to decorate onto
+   */
+  IEntityBaseDecorator(IEntity* entity);
+  
+  /**
+   * @brief IEntityBaseDecorator destructor
+   */
+  ~IEntityBaseDecorator();
 
-    public: 
-        IEntityBaseDecorator(IEntity* entity);
+  float GetSpeed() const { return entity->GetSpeed(); }
 
-        ~IEntityBaseDecorator();
+  Vector3 GetPosition() const { return entity->GetPosition(); }
 
-        float GetSpeed() const {return entity->GetSpeed();}
+  Vector3 GetDirection() const { return entity->GetDirection(); }
 
-        Vector3 GetPosition() const {return entity->GetPosition();}
+  Vector3 GetDestination() const { return entity->GetDestination(); }
 
-        Vector3 GetDirection() const {return entity->GetDirection();}
+  JsonObject GetDetails() const { return entity->GetDetails(); }
 
-        Vector3 GetDestination() const {return entity->GetDestination();}
+  bool GetAvailability() const { return entity->GetAvailability(); }
 
-        JsonObject GetDetails() const {return entity->GetDetails();}
+  void SetPosition(Vector3 pos_) { entity->SetPosition(pos_); }
 
-        bool GetAvailability() const { return entity->GetAvailability(); }
+  std::string GetStrategyName() const { entity->GetStrategyName(); }
 
-        void SetPosition(Vector3 pos_) { entity->SetPosition(pos_); }
+  void setStrategyName(std::string strategyName_) { entity->SetStrategyName(strategyName_); }
 
-        std::string GetStrategyName() const {entity->GetStrategyName(); }
+  void SetDirection(Vector3 dir_) { entity->SetDirection(dir_); }
 
-        void setStrategyName(std::string strategyName_) { entity->SetStrategyName(strategyName_); }
+  void SetAvailability(bool choice) { entity->SetAvailability(choice); }
 
-        void SetDirection(Vector3 dir_) { entity->SetDirection(dir_); }
+  void SetDestination(Vector3 des_) { entity->SetDestination(des_); }
 
-        void SetAvailability(bool choice) {entity->SetAvailability(choice); }
+  void SetColor(std::string col_) { entity->SetColor(col_); }
 
-        void SetDestination(Vector3 des_) { entity->SetDestination(des_); }
+  void Rotate(double angle) { entity->Rotate(angle); }
 
-        void SetColor(std::string col_) { entity->SetColor(col_); }
+  void Jump(double height) { entity->Jump(height); }
 
-        void Rotate(double angle) {entity->Rotate(angle); }
-
-        void Jump(double height ) {entity->Jump(height); }
-
-
-
-
-        
-
-        virtual void Update(double dt, std::vector<IEntity*> scheduler){}
+  virtual void Update(double dt, std::vector<IEntity*> scheduler) {}
+  
+ protected: 
+  IEntity* entity;
 };
 
 #endif  
