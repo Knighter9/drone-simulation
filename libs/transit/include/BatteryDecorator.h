@@ -8,21 +8,21 @@
  * @brief Represents a decorator for the drone batteries
  */
 class BatteryDecorator : public IEntityBaseDecorator {
- public: 
+ public:
   /**
    * @brief Construct a new Battery Decorator object
    * @param entity The entity to decorate onto
    */
-  BatteryDecorator(IEntity *entity): IEntityBaseDecorator(entity) {
+  BatteryDecorator(IEntity *entity) : IEntityBaseDecorator(entity) {
       this->batteryLife = 100.0;
       this->charging = false;
-  };
-  
+  }
+
   /**
    * @brief BatteryDecorator destructor
    */
   ~BatteryDecorator();
-  
+
   /**
    * @brief Updates the drone battery
    * @param dt Delta time
@@ -30,7 +30,8 @@ class BatteryDecorator : public IEntityBaseDecorator {
    * @param chargingStations The vector of charging stations in the physical
    * system
    */
-  void Update(double dt, std::vector<IEntity*> scheduler, std::vector<IEntity*> chargingStations);
+  void Update(double dt, std::vector<IEntity*> scheduler,
+    std::vector<IEntity*> chargingStations);
 
   /**
    * @brief Determines whether the drone needs to be recharged yet. A drone
@@ -39,7 +40,7 @@ class BatteryDecorator : public IEntityBaseDecorator {
    * does not need to be recharged yet.
    */
   bool NeedRecharge();
-        
+
   /**
    * @brief Determines if the drone is fully charged or not. A drone is
    * fully charged if battery = 100
@@ -56,7 +57,7 @@ class BatteryDecorator : public IEntityBaseDecorator {
       this->graph = graph;
       entity->SetGraph(graph);
   }
-  
+
   /**
    * @brief Gets the nearest charging station to the drone
    * @param chargingStations The vector of charging stations in the physical
@@ -73,12 +74,11 @@ class BatteryDecorator : public IEntityBaseDecorator {
    */
   bool NextPickupPossible(double dt, std::vector<IEntity*> scheduler);
 
- private: 
-  float batteryLife; // 100 will be fully charged. 0 will be empty.
+ private:
+  float batteryLife;  // 100 will be fully charged. 0 will be empty.
   bool charging;
   IEntity* nearestChargingStation;
   IStrategy* toChargingStation = nullptr;
-
 };
 
-#endif  
+#endif

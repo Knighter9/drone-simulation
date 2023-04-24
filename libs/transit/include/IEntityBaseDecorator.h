@@ -10,13 +10,13 @@
  * a battery. The battery decorator will implment this abstract decorator.
  */
 class IEntityBaseDecorator : public IEntity {
- public: 
+ public:
   /**
    * @brief Construct a new IEntity Decorator object
    * @param entity The entity to decorate onto
    */
   IEntityBaseDecorator(IEntity* entity);
-  
+
   /**
    * @brief IEntityBaseDecorator destructor
    */
@@ -38,7 +38,9 @@ class IEntityBaseDecorator : public IEntity {
 
   std::string GetStrategyName() const { entity->GetStrategyName(); }
 
-  void setStrategyName(std::string strategyName_) { entity->SetStrategyName(strategyName_); }
+  void setStrategyName(std::string strategyName_) {
+    entity->SetStrategyName(strategyName_);
+  }
 
   void SetDirection(Vector3 dir_) { entity->SetDirection(dir_); }
 
@@ -53,9 +55,9 @@ class IEntityBaseDecorator : public IEntity {
   void Jump(double height) { entity->Jump(height); }
 
   virtual void Update(double dt, std::vector<IEntity*> scheduler) {}
-  
- protected: 
+
+ protected:
   IEntity* entity;
 };
 
-#endif  
+#endif
