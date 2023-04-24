@@ -88,7 +88,8 @@
  ../../dependencies/include/picojson.h include/IStrategy.h \
  include/AstarStrategy.h include/PathStrategy.h include/BeelineStrategy.h \
  include/DfsStrategy.h include/DijkstraStrategy.h include/JumpDecorator.h \
- include/CelebrationDecorator.h include/SpinDecorator.h
+ include/CelebrationDecorator.h include/SpinDecorator.h \
+ include/DataCollection.h
 
 include/Drone.h:
 
@@ -289,3 +290,5 @@ include/JumpDecorator.h:
 include/CelebrationDecorator.h:
 
 include/SpinDecorator.h:
+
+include/DataCollection.h:

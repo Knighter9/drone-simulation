@@ -7,6 +7,7 @@
 #include <vector>
 #include <chrono>
 
+/* namespace */
 using namespace std;
 
 /**
@@ -20,15 +21,19 @@ class DataCollection {
         }
 
         // Add data to collection
-        void AddData(string strategy, float fuel) {}
+        void AddData(string strategy); /*, float fuel*/
+        
         // Write data to file
-        void WriteDataToFile(string filename) {}
+        void WriteDataToFile();
+
+        // Start timer
+        void StartTime() {
+            start_time = chrono::high_resolution_clock::now();
+        }
 
     private:
         /* Private constructor and destructor to prevent instantiation */
-        DataCollection() {
-            start_time = chrono::high_resolution_clock::now(); 
-        }
+        DataCollection() {}
         ~DataCollection() {}
 
         /* Private data members */

@@ -3,6 +3,7 @@
 #include "WebServer.h"
 #include "SimulationModel.h"
 #include "routing_api.h"
+#include "DataCollection.h"
 
 //--------------------  Controller ----------------------------
 
@@ -188,6 +189,9 @@ int main(int argc, char**argv) {
     else {
         std::cout << "Usage: ./build/bin/transit_service <port> apps/transit_service/web/" << std::endl;
     }
+
+    /* Writes data to .csv file */
+    DataCollection::GetInstance().WriteDataToFile(); 
 
     return 0;
 }

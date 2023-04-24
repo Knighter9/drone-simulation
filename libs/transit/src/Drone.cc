@@ -10,6 +10,7 @@
 #include "DijkstraStrategy.h"
 #include "JumpDecorator.h"
 #include "SpinDecorator.h"
+#include "DataCollection.h"
 
 
 Drone::Drone(JsonObject& obj) : details(obj) {
@@ -80,10 +81,12 @@ void Drone::Update(double dt, std::vector<IEntity*> scheduler) {
     toRobot->Move(this, dt);
 
     if (toRobot->IsCompleted()) {
+      DataCollection::GetInstance().StartTime(); // Start timer for data collection
       delete toRobot;
       toRobot = nullptr;
       pickedUp = true;
     }
+
   } else if (toFinalDestination) {
     toFinalDestination->Move(this, dt);
 
@@ -98,6 +101,7 @@ void Drone::Update(double dt, std::vector<IEntity*> scheduler) {
       nearestEntity = nullptr;
       available = true;
       pickedUp = false;
+      DataCollection::GetInstance().AddData(nearestEntity->GetStrategyName());
     }
   }
 }
