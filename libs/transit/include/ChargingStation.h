@@ -4,6 +4,11 @@
 #include "IEntity.h"
 #include "IStrategy.h"
 
+/**
+ * @class ChargingStation
+ * @brief Represents a charging station in a physical system for the drones to
+ * recharge at.
+ */
 class ChargingStation : public IEntity {
  public:
   /**
@@ -16,11 +21,12 @@ class ChargingStation : public IEntity {
    * @brief Destroy the ChargingStation object
    */
   ~ChargingStation();
+
   /**
    * @brief Gets the speed of the chargingStation
    * @return The speed of the chargingStation
    */
-  float GetSpeed() const { }
+  float GetSpeed() const {}
 
   /**
    * @brief Gets the position of the chargingStation
@@ -45,13 +51,21 @@ class ChargingStation : public IEntity {
    */
   JsonObject GetDetails() const { return details; }
 
+  /**
+   * @brief Gets the availability of the chargingStation
+   * @return The availability of the chargingStation
+   */
   bool GetAvailability() const { return available; }
 
-  void SetAvalibility(bool choice){
+  /**
+   * @brief Sets the availability of the chargingStation
+   * @param choice The new availability of the chargingStation
+   */
+  void SetAvalibility(bool choice) {
     this->available = choice;
   }
 
-  private:
+ private:
   JsonObject details;
   Vector3 position;
   bool available;

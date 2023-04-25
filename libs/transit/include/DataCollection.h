@@ -11,7 +11,8 @@
 using namespace std;
 
 /**
- * @brief this class is responsible for collecting the data
+ * @class DataCollection
+ * @brief This class is responsible for collecting the data
  */
 class DataCollection {
     public:

@@ -1,1 +1,58 @@
 # Team-010-23-homework4
+
+### Members:
+Lorenz Estrera (estre069)  
+Jonathan Haak (haak0052)  
+Emma Kindelsperger (kinde085)  
+Ben Knight (knigh501)  
+
+## Project Overview
+This project represents a drone simulation system. In this simulation, users can schedule trips for robots on a map of the University of Minnesota campus. Users are in control of the robots' starting point, final destination, as well as path routing strategy. Drones will then pick up the scheduled robots, carry them to their destination using the appropriate routing strategy, and drop them off.  
+
+## How to Run the Simulation
+////i'm assuming this is not considering docker  
+////dont totally know what they expect for this part, kinda just copied the instructions they gave us  
+
+For these instructions, we will assume you are using port 8081.  
+1. Connect to a CSE lab machine  
+2. Locate the Team-010-23-homework4 repo  
+3. Build the project using the command "make -j"  
+4. Run the project using the command "./build/bin/transit_service 8081 apps/transit_service/web/"  
+5. Navigate to http://127.0.0.1:8081 and you should see a visualization.  
+6. Navigate to http://127.0.0.1:8081/schedule.html and you should see a page to schedule robot trips.  
+
+## Specifics of the Simulation
+Drones can be instructed to use either Astar, DFS, or Dijkstra's search algorithms to determine the routes they take while carrying drones. However, when drones are flying to go pick up robots or to go recharge their battery at a recharging station, drones use the Beeline path strategy. While Astar, DFS, and Dijkstra all use actual path finding algorithms to calculate legitimate routes in between buildings on the map, Beeline just moves drones from one point to another in a completely linear movement.  
+
+Upon arrival of a robot to its destination, both the robot and the drone will celebrate the successful delivery. The type of celebration depends on what routing strategy the user chose for the given robot. If Astar was chosen, then the drone and robot will celebrate by jumping up and down in place. If DFS was chosen, then the drone and robot will celebrate by first jumping, and then spinning around in place. If Dijkstra was chosen, then the drone and robot will celebrate by first spinning around, and then jumping.  
+
+////are we including the helicopter and humans?  
+
+
+## New Feature #1 - Battery Recharging
+Our first extension was adding a battery to the drones that depletes over time with movement, as well as recharging stations placed around the map. As drones fly around picking up and dropping off robots, their battery life will slowly go down from 100% to 0%. When a drone's battery reaches 25% or less, then it will automatically go and find the nearest recharge station. This is a significant add to the simulation because it greatly affects drones' behavior and ultimately changes the system of how robots are scheduled to be picked up. It even makes the simulation more realistic, because drones in real life also need to have their batteries recharged after being used. To implement this extension we used both Factory and Decorator design patterns. We used Decorator to add the battery implementation onto the drones, and then used Factory to create instances of the ChargingStation classes. This extension is not user interactable, so there are no instructions on how to use it.  
+
+////do drones also lose battery when not moving?  
+////logic of what to do when low battery while carrying a robot  
+////how edge cases are resolved (multiple drones and recharge stations)  
+////is recharging incremental or immediate?  
+
+
+## New Feature #2 - Data Collection
+Our second extension was to collect various data from running the drone simulation, and print out the data collected to a csv file. The simulation data we collect includes drones' speed, number of trips, fuel efficiency, fuel levels, directions, positions, time elapsed, routing algorithms used, etc. This is a significant add to the simulation because it allows users to see the details behind each successful trip, and can even be used to compare the effectiveness of the different routing algorithms used in the simulation. This is also useful to us, the creators of this extension, as we can use the data we collect to optimize our first extension, Battery Recharging. To implement this extension we used the Singleton design pattern.  
+
+////when does data collection start and end? on gradescope we put that it starts when a trip is scheduled and ends when robot reaches destination  
+////current list of data collected is taken from gradescope,, will need to be edited  
+////does csv file contain info on only one drone trip?  
+////how to access csv file  
+////one csv file or multiple?  
+
+## Sprint Retrospective
+
+
+## UML Diagrams
+
+
+## Docker link
+
+
