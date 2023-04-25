@@ -13,6 +13,7 @@ static class Algorithms {
         const final double droneWeight = 250;
         const final double maxSpeed = 50;
         const final double maxBatVal = 100;
+        const final double gainRateC = 5; //constant for battery gain rate
         double batLossRate(double speed, bool hasPassenger, double curBatVal, double inclineAngle) {
             double pw = passWeight;
             if(!hasPassenger) {
@@ -30,6 +31,10 @@ static class Algorithms {
         }
 
         double batGainRate(double curBatVal, double stationQuality) {
+            double invQuality = 1 / (stationQuality / 100);
+            double invBatVal = (100 - curBatVal) / 100;
+            double gainRate = gainRateC * invQuality * invBatVal;
+            return gainRate;
 
         }
         double batGainDx(double curBatVal, double stationQuality) {
@@ -37,6 +42,16 @@ static class Algorithms {
         }
 
         bool isRouteSafe(V3 curLoc, V3 passLoc, V3 passDest, V3[] stationLocs) {
+            int closestStationIndex = 0;
+            double closestStationDist = distanceBetween(passDest, stationLocs[0]);
+            for(int i = 1; i < stationLocs.length; i++) {
+                double dist = distanceBetween(passDest, stationLocs[i]);
+                if(dist < closestStationDist) {
+                    closestStationDist = dist;
+                    closestStationIndex = i;
+                }
+            }
+            
 
         }
 
