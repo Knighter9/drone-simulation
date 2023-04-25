@@ -31,7 +31,7 @@ class DataCollection {
             start_time = chrono::high_resolution_clock::now();
         }
 
-    private:
+    protected:
         /* Private constructor and destructor to prevent instantiation */
         DataCollection() {}
         ~DataCollection() {}

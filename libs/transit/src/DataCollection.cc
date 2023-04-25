@@ -8,11 +8,13 @@ using namespace std;
 
 void DataCollection::AddData(string strategy) { /*, float fuel*/
     strategies.push_back(strategy);
+    cout << "strat: %s" << strategies.at(0) << endl;
     /* add back when rdy */
     // fuels.push_back(fuel); 
     auto end_time = chrono::high_resolution_clock::now();
     auto duration = chrono::duration_cast<chrono::microseconds>(end_time - start_time);
     speeds.push_back(static_cast<float>(duration.count())/1000);
+    cout << "speeds: %f" << speeds.at(0) << endl;
 }
 
 void DataCollection::WriteDataToFile() {
