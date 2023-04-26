@@ -137,8 +137,8 @@ void BatteryDecorator::Update(double dt, std::vector<IEntity*> scheduler,
             entity->Update(dt, scheduler);
             batteryLife = batteryLife - 0.001;
         } else {
-            std::cout << "must recharge for upcoming trip." << std::endl;
-            std::cout << "battery at: " << batteryLife << std::endl;
+            // std::cout << "must recharge for upcoming trip." << std::endl;
+            // std::cout << "battery at: " << batteryLife << std::endl;
             GetNearestChargingStation(chargingStations);
         }
         // std::cout << "The next pickup should be " <<

@@ -1,12 +1,36 @@
+/* DATA COLLECTION IMPLEMENTATION */
+
+/* Includes */
 #include "DataCollection.h"
 
-// I have no idea how I'm going to implement this quite yet.
+/* namespace */
+using namespace std;
 
-void DataCollection::CollectData() {
-    std::ofstream myfile;
-    myfile.open("data.csv");
-    
-    myfile << "Strategy used, Time at pickup, Time at dropoff, Total time, Total battery used, Total battery remaining" << std::endl;
-
-
+void DataCollection::AddData(string strategy) { /*, float fuel*/
+    strategies.push_back(strategy);
+    cout << "strat: %s" << strategies.at(0) << endl;
+    /* add back when rdy */
+    // fuels.push_back(fuel); 
+    auto end_time = chrono::high_resolution_clock::now();
+    auto duration = chrono::duration_cast<chrono::microseconds>(end_time - start_time);
+    speeds.push_back(static_cast<float>(duration.count())/1000);
+    cout << "speeds: %f" << speeds.at(0) << endl;
 }
+
+void DataCollection::WriteDataToFile() {
+    string fn = "Data/data.csv"; // Directs to folder/file.csv
+    ofstream file(fn);
+    if (file.is_open()) {
+                                /* add fuel when rdy */
+        file << "Strategy, Speed (ms)"/*, Fuel */ << endl;
+        for (int i = 0; i < strategies.size(); i++) {
+                                                      /* add fuel when rdy */
+            file << strategies[i] << "," << speeds[i] /*<< "," << fuels[i]*/ << endl;
+        }
+        file.close();
+        cout << "Data written to file: " << fn << endl;
+    } else {
+        cout << "Unable to open file: " << fn << endl;
+    }
+}
+        

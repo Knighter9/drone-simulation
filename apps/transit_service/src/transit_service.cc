@@ -3,6 +3,7 @@
 #include "WebServer.h"
 #include "SimulationModel.h"
 #include "routing_api.h"
+#include "DataCollection.h"
 
 //--------------------  Controller ----------------------------
 

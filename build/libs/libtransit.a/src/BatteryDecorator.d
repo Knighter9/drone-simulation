@@ -88,7 +88,9 @@
  ../../dependencies/include/libwebsockets/lws-netdev.h \
  ../../dependencies/include/picojson.h \
  ../../dependencies/include/picojson.h include/Drone.h \
- include/IStrategy.h include/BeelineStrategy.h
+ include/IStrategy.h include/BeelineStrategy.h \
+ ../../libs/routing/include/routing/astar.h \
+ ../../libs/routing/include/routing_strategy.h
 
 include/BatteryDecorator.h:
 
@@ -279,3 +281,7 @@ include/Drone.h:
 include/IStrategy.h:
 
 include/BeelineStrategy.h:
+
+../../libs/routing/include/routing/astar.h:
+
+../../libs/routing/include/routing_strategy.h:

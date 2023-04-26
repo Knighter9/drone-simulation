@@ -1,36 +1,48 @@
 #ifndef DATA_COLLECTION_H_
 #define DATA_COLLECTION_H_
 
-#include <ostream>
+/* Includes */
+#include <iostream>
 #include <fstream>
+#include <vector>
+#include <chrono>
+
+/* namespace */
+using namespace std;
 
 /**
  * @class DataCollection
  * @brief This class is responsible for collecting the data
  */
 class DataCollection {
- public:
-  // TODO: What do I need to add here to make this work?
-  // Create an object of DataCollection?
+    public:
+        static DataCollection& GetInstance() {
+            static DataCollection instance;
+            return instance;
+        }
 
-  DataCollection() {
-  // TODO: Should I initialize the variables here so that the object gets updated with the simulation?
-  startTime = 0.0;
-  endTime = 0.0;
-  strategyUsed = "";
+        // Add data to collection
+        void AddData(string strategy); /*, float fuel*/
+        
+        // Write data to file
+        void WriteDataToFile();
 
-  }
-  ~DataCollection();
-    
-  void CollectData();
+        // Start timer
+        void StartTime() {
+            start_time = chrono::high_resolution_clock::now();
+        }
 
- protected:
-  double startTime;
-  double endTime;
-  std::string strategyUsed;
+    protected:
+        /* Private constructor and destructor to prevent instantiation */
+        DataCollection() {}
+        ~DataCollection() {}
+
+        /* Private data members */
+        vector<string> strategies;
+        vector<float> fuels;
+        vector<float> speeds;
+        chrono::high_resolution_clock::time_point start_time;
+
 };
 
 #endif
-
-
-

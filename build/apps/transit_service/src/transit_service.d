@@ -95,7 +95,8 @@
  ../../libs/transit/include/IController.h \
  ../../libs/transit/include/Robot.h \
  ../../libs/routing/include/routing_api.h \
- ../../libs/routing/include/graph_factory.h
+ ../../libs/routing/include/graph_factory.h \
+ ../../libs/transit/include/DataCollection.h
 
 ../../dependencies/include/WebServer.h:
 
@@ -294,3 +295,5 @@
 ../../libs/routing/include/routing_api.h:
 
 ../../libs/routing/include/graph_factory.h:
+
+../../libs/transit/include/DataCollection.h:
