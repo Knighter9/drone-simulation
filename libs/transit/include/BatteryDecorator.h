@@ -14,8 +14,8 @@ class BatteryDecorator : public IEntityBaseDecorator {
    * @param entity The entity to decorate onto
    */
   BatteryDecorator(IEntity *entity) : IEntityBaseDecorator(entity) {
-      this->batteryLife = 100.0;
-      this->charging = false;
+    this->batteryLife = 100.0;
+    this->charging = false;
   }
 
   /**
@@ -31,7 +31,7 @@ class BatteryDecorator : public IEntityBaseDecorator {
    * system
    */
   void Update(double dt, std::vector<IEntity*> scheduler,
-    std::vector<IEntity*> chargingStations);
+              std::vector<IEntity*> chargingStations);
 
   /**
    * @brief Determines whether the drone needs to be recharged yet. A drone
@@ -54,8 +54,8 @@ class BatteryDecorator : public IEntityBaseDecorator {
    * @param graph The IGraph object to be used
    */
   void SetGraph(const IGraph* graph) override {
-      this->graph = graph;
-      entity->SetGraph(graph);
+    this->graph = graph;
+    entity->SetGraph(graph);
   }
 
   /**

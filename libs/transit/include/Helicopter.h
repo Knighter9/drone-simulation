@@ -4,6 +4,10 @@
 #include "IEntity.h"
 #include "IStrategy.h"
 
+/**
+ * @class Helicopter
+ * @brief Represents a helicopter in a physical system
+ */
 class Helicopter : public IEntity {
  public:
   /**
@@ -79,7 +83,7 @@ class Helicopter : public IEntity {
    */
   void Rotate(double angle);
 
-  private:
+ private:
   JsonObject details;
   Vector3 position;
   Vector3 direction;

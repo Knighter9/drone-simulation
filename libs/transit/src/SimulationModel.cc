@@ -24,7 +24,7 @@ SimulationModel::~SimulationModel() {
   for (int i = 0; i < scheduler.size(); i++) {
     delete scheduler[i];
   }
-  for(int i =0;i< chargingStations.size();i++){
+  for (int i = 0; i < chargingStations.size(); i++) {
     delete chargingStations[i];
   }
   delete graph;
@@ -43,9 +43,9 @@ void SimulationModel::CreateEntity(JsonObject& entity) {
   // Call AddEntity to add it to the view
   controller.AddEntity(*myNewEntity);
   entities.push_back(myNewEntity);
-  
+
   // add entity to charing station if it is a charging station;
-  if(type.compare("charging station")==0){
+  if (type.compare("charging station") == 0) {
     std::cout << "adding a new charing station " << std::endl;
     chargingStations.push_back(myNewEntity);
   }
@@ -79,10 +79,9 @@ void SimulationModel::Update(double dt) {
   for (int i = 0; i < entities.size(); i++) {
     JsonObject detailsTemp = entities[i]->GetDetails();
     std::string typeTemp = detailsTemp["type"];
-    if(typeTemp.compare("drone")==0){
-      entities[i]->Update(dt,scheduler,chargingStations);
-    }
-    else{
+    if (typeTemp.compare("drone") == 0) {
+      entities[i]->Update(dt, scheduler, chargingStations);
+    } else {
       entities[i]->Update(dt, scheduler);
     }
     controller.UpdateEntity(*entities[i]);

@@ -13,36 +13,47 @@ using namespace std;
 /**
  * @class DataCollection
  * @brief This class is responsible for collecting the data
+ * from the simulation
  */
 class DataCollection {
-    public:
-        static DataCollection& GetInstance() {
-            static DataCollection instance;
-            return instance;
-        }
+ public:
+  /**
+   * @brief Get instance of the collected data
+   * @return DataCollection instance
+   */
+  static DataCollection& GetInstance() {
+    static DataCollection instance;
+    return instance;
+  }
 
-        // Add data to collection
-        void AddData(string strategy); /*, float fuel*/
-        
-        // Write data to file
-        void WriteDataToFile();
+  /**
+   * @brief Add data to collection
+   * @param strategy Strategy name
+   */
+  void AddData(string strategy); /*, float fuel*/
 
-        // Start timer
-        void StartTime() {
-            start_time = chrono::high_resolution_clock::now();
-        }
+  /**
+   * @brief Write data to file
+   */
+  void WriteDataToFile();
 
-    protected:
-        /* Private constructor and destructor to prevent instantiation */
-        DataCollection() {}
-        ~DataCollection() {}
+  /**
+   * @brief Start timer
+   */
+  void StartTime() {
+    start_time = chrono::high_resolution_clock::now();
+  }
 
-        /* Private data members */
-        vector<string> strategies;
-        vector<float> fuels;
-        vector<float> speeds;
-        chrono::high_resolution_clock::time_point start_time;
+ protected:
+  /* Private constructor and destructor to prevent instantiation */
+  DataCollection() {}
+  ~DataCollection() {}
 
+  /* Private data members */
+  vector<string> strategies;
+  vector<float> fuels;
+  vector<float> speeds;
+  chrono::high_resolution_clock::time_point start_time;
 };
 
 #endif

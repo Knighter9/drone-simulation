@@ -4,18 +4,17 @@
 #include "CelebrationDecorator.h"
 
 /**
+ * @class SpinDecorator
  * @brief this class inhertis from the IStrategy class and is represents
- * a celebration decorator where the entity will celebrate according to it.
+ * a celebration decorator where the entity will celebrate according to it
  */
 class SpinDecorator : public CelebrationDecorator {
-
  public:
   /**
    * @brief Construct a new Spin Decorator object
-   *
    * @param strategy the strategy to decorate onto
    */
-  SpinDecorator(IStrategy* strategy) : CelebrationDecorator(strategy) {};
+  SpinDecorator(IStrategy* strategy) : CelebrationDecorator(strategy) {}
 
   /**
    * @brief SpinDecorator Destructor
@@ -23,8 +22,7 @@ class SpinDecorator : public CelebrationDecorator {
   ~SpinDecorator();
 
   /**
-   * @brief Move the entity with the spin behavior for 4 seconds.
-   * 
+   * @brief Move the entity with the spin behavior for 4 seconds
    * @param entity Entity to move
    * @param dt Delta Time
    */

@@ -4,8 +4,9 @@
 #include "IEntityFactory.h"
 
 /**
- *@brief Factory method for composite class. Inherits from IEntityFactory.
- **/
+ * @class CompositeFactory
+ * @brief Factory method for composite class. Inherits from IEntityFactory.
+ */
 class CompositeFactory : public IEntityFactory {
  public:
   /**
@@ -13,18 +14,18 @@ class CompositeFactory : public IEntityFactory {
    * @param entity - JsonObject to be used to create the new entity.
    * @return Entity that was created if it was created successfully, or a
    *nullpointer if creation failed.
-   **/
+   */
   IEntity* CreateEntity(JsonObject& entity);
 
   /**
    * @brief Adds given factory
    * @param factoryEntity - Factory to be added.
-   **/
+   */
   void AddFactory(IEntityFactory* factoryEntity);
 
   /**
    * @brief Destructor for IEntityFactory class.
-   **/
+   */
   virtual ~CompositeFactory();
 
  private:

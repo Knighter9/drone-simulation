@@ -1,5 +1,9 @@
 var searchData=
 [
-  ['update_56',['Update',['../classDrone.html#a6798b0bd297ca7a930016cd2dda0b7ff',1,'Drone::Update()'],['../classHelicopter.html#a40a86f3aee09c2825dfe27851072791c',1,'Helicopter::Update()'],['../classHuman.html#ad01c878f8084b3146b53262bf7bf9898',1,'Human::Update()'],['../classIEntity.html#a9a8e8588fd85c7b0d813d60686d4dc2c',1,'IEntity::Update()'],['../classSimulationModel.html#ad409c5965a777ef636114eeef8f9ea48',1,'SimulationModel::Update()']]],
-  ['updateentity_57',['UpdateEntity',['../classIController.html#aae116763f3bbfc0875eb841912df7c59',1,'IController']]]
+  ['random_51',['Random',['../classIEntity.html#a40b0caaefcd247250efd2f12a3335a73',1,'IEntity']]],
+  ['removeentity_52',['RemoveEntity',['../classIController.html#a35b431eb8e01216df8b33fa3f4c2b25c',1,'IController']]],
+  ['removepath_53',['RemovePath',['../classIController.html#a23bf74a0e1672c6daba1674137759f55',1,'IController']]],
+  ['robot_54',['Robot',['../classRobot.html',1,'Robot'],['../classRobot.html#a007753e52e18f9a487d8241da97d4150',1,'Robot::Robot()']]],
+  ['robotfactory_55',['RobotFactory',['../classRobotFactory.html',1,'']]],
+  ['rotate_56',['Rotate',['../classDrone.html#ad698b0fac61fecdd01dffea6762a3710',1,'Drone::Rotate()'],['../classHelicopter.html#ad1211b18d9db476bfa2c61afead9ffb8',1,'Helicopter::Rotate()'],['../classIEntity.html#a4c109baa4179c28422623a7d3b2e9f82',1,'IEntity::Rotate()'],['../classIEntityBaseDecorator.html#a2f475ab1ea922edf00a0b839fb4d4af8',1,'IEntityBaseDecorator::Rotate()'],['../classRobot.html#a1cb405ec49d47c46f3aa87fde1415b59',1,'Robot::Rotate()']]]
 ];

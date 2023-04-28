@@ -74,27 +74,27 @@ $(function() {
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;IStrategy.h&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classPathStrategy.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="classPathStrategy.html">PathStrategy</a> : <span class="keyword">public</span> <a class="code" href="classIStrategy.html">IStrategy</a> {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  std::vector&lt;std::vector&lt;float&gt;&gt; path;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  <span class="keywordtype">int</span> index;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classPathStrategy.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="classPathStrategy.html">PathStrategy</a> : <span class="keyword">public</span> <a class="code" href="classIStrategy.html">IStrategy</a> {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  std::vector&lt;std::vector&lt;float&gt;&gt; path;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  <span class="keywordtype">int</span> index;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <a class="code" href="classPathStrategy.html#a8b73e5f41250a1b53bfeed777103fc70">PathStrategy</a>(std::vector&lt;std::vector&lt;float&gt;&gt; path = {});</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classPathStrategy.html#a6dc77c85825e63ce46ac1041818222c3">Move</a>(<a class="code" href="classIEntity.html">IEntity</a>* entity, <span class="keywordtype">double</span> dt);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classPathStrategy.html#a96edc8077f42ed62a64803b69e770690">IsCompleted</a>();</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;};</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#endif  // PATH_STRATEGY_H_</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classPathStrategy.html#a6dc77c85825e63ce46ac1041818222c3">Move</a>(<a class="code" href="classIEntity.html">IEntity</a>* entity, <span class="keywordtype">double</span> dt);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classPathStrategy.html#a96edc8077f42ed62a64803b69e770690">IsCompleted</a>();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;};</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#endif  // PATH_STRATEGY_H_</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassPathStrategy_html_a8b73e5f41250a1b53bfeed777103fc70"><div class="ttname"><a href="classPathStrategy.html#a8b73e5f41250a1b53bfeed777103fc70">PathStrategy::PathStrategy</a></div><div class="ttdeci">PathStrategy(std::vector&lt; std::vector&lt; float &gt;&gt; path={})</div><div class="ttdoc">Construct a new PathStrategy Strategy object.</div><div class="ttdef"><b>Definition:</b> PathStrategy.cc:3</div></div>
 <div class="ttc" id="aclassIStrategy_html"><div class="ttname"><a href="classIStrategy.html">IStrategy</a></div><div class="ttdoc">Strategy interface.</div><div class="ttdef"><b>Definition:</b> IStrategy.h:10</div></div>
 <div class="ttc" id="aclassPathStrategy_html_a96edc8077f42ed62a64803b69e770690"><div class="ttname"><a href="classPathStrategy.html#a96edc8077f42ed62a64803b69e770690">PathStrategy::IsCompleted</a></div><div class="ttdeci">virtual bool IsCompleted()</div><div class="ttdoc">Check if the trip is completed by seeing if index has reached the end of the path.</div><div class="ttdef"><b>Definition:</b> PathStrategy.cc:20</div></div>
-<div class="ttc" id="aclassIEntity_html"><div class="ttname"><a href="classIEntity.html">IEntity</a></div><div class="ttdoc">Represents an entity in a physical system.</div><div class="ttdef"><b>Definition:</b> IEntity.h:21</div></div>
+<div class="ttc" id="aclassIEntity_html"><div class="ttname"><a href="classIEntity.html">IEntity</a></div><div class="ttdoc">Represents an entity in a physical system. An IEntity object has a unique ID, a position,...</div><div class="ttdef"><b>Definition:</b> IEntity.h:20</div></div>
 <div class="ttc" id="aclassPathStrategy_html_a6dc77c85825e63ce46ac1041818222c3"><div class="ttname"><a href="classPathStrategy.html#a6dc77c85825e63ce46ac1041818222c3">PathStrategy::Move</a></div><div class="ttdeci">virtual void Move(IEntity *entity, double dt)</div><div class="ttdoc">Move toward next position in the path.</div><div class="ttdef"><b>Definition:</b> PathStrategy.cc:6</div></div>
-<div class="ttc" id="aclassPathStrategy_html"><div class="ttname"><a href="classPathStrategy.html">PathStrategy</a></div><div class="ttdoc">this class inhertis from the IStrategy class and is represents a movement strategy where the entity s...</div><div class="ttdef"><b>Definition:</b> PathStrategy.h:10</div></div>
+<div class="ttc" id="aclassPathStrategy_html"><div class="ttname"><a href="classPathStrategy.html">PathStrategy</a></div><div class="ttdoc">this class inhertis from the IStrategy class and is represents a movement strategy where the entity s...</div><div class="ttdef"><b>Definition:</b> PathStrategy.h:11</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

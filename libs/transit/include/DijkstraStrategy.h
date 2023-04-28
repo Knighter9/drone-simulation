@@ -5,7 +5,8 @@
 #include "graph.h"
 
 /**
- * @brief this class inhertis from the PathStrategy class and is responsible for
+ * @class DijkstraStrategy
+ * @brief This class inhertis from the PathStrategy class and is responsible for
  * generating the dijkstra path that the drone will take.
  */
 class DijkstraStrategy : public PathStrategy {

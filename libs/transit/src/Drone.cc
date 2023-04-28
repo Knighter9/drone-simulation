@@ -33,7 +33,6 @@ Drone::~Drone() {
 }
 
 void Drone::GetNearestEntity(std::vector<IEntity*> scheduler) {
- // std::cout<< "func is running ran" << std::endl;
   float minDis = std::numeric_limits<float>::max();
   for (auto entity : scheduler) {
     if (entity->GetAvailability()) {
@@ -46,7 +45,7 @@ void Drone::GetNearestEntity(std::vector<IEntity*> scheduler) {
   }
 
   if (nearestEntity) {
-      // set availability to the nearest entity
+    // set availability to the nearest entity
     nearestEntity->SetAvailability(false);
     available = false;
     pickedUp = false;
@@ -59,13 +58,16 @@ void Drone::GetNearestEntity(std::vector<IEntity*> scheduler) {
     std::string strat = nearestEntity->GetStrategyName();
     if (strat == "astar")
       toFinalDestination =
-        new JumpDecorator(new AstarStrategy(destination, finalDestination, graph));
+        new JumpDecorator(new AstarStrategy(destination, finalDestination,
+                          graph));
     else if (strat == "dfs")
       toFinalDestination =
-        new SpinDecorator(new JumpDecorator(new DfsStrategy(destination, finalDestination, graph)));
+        new SpinDecorator(new JumpDecorator(new DfsStrategy(destination,
+                          finalDestination, graph)));
     else if (strat == "dijkstra")
       toFinalDestination =
-        new JumpDecorator(new SpinDecorator(new DijkstraStrategy(destination, finalDestination, graph)));
+        new JumpDecorator(new SpinDecorator(new DijkstraStrategy(destination,
+                          finalDestination, graph)));
     else
       toFinalDestination = new BeelineStrategy(destination, finalDestination);
   }
@@ -73,9 +75,7 @@ void Drone::GetNearestEntity(std::vector<IEntity*> scheduler) {
 
 void Drone::Update(double dt, std::vector<IEntity*> scheduler) {
   if (available)
-    //std::cout<< "Drone about to call it get Nearest Entity func" << std::endl;
     GetNearestEntity(scheduler);
-    //std::cout<< "it ran" << std::endl;
 
   if (toRobot) {
     toRobot->Move(this, dt);
@@ -103,7 +103,6 @@ void Drone::Update(double dt, std::vector<IEntity*> scheduler) {
       pickedUp = false;
     }
     DataCollection::GetInstance().WriteDataToFile();
-
   }
 }
 

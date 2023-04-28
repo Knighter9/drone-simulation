@@ -5,6 +5,7 @@
 #include "graph.h"
 
 /**
+ * @class DfsStrategy
  * @brief this class inhertis from the PathStrategy class and is responsible for
  * generating the depth first search path that the drone will take.
  */
@@ -12,7 +13,6 @@ class DfsStrategy : public PathStrategy {
  public:
   /**
    * @brief Construct a new Astar Strategy object
-   *
    * @param position Current position
    * @param destination End destination
    * @param graph Graph/Nodes of the map

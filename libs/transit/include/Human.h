@@ -4,6 +4,10 @@
 #include "IEntity.h"
 #include "IStrategy.h"
 
+/**
+ * @class Human
+ * @brief Represents a human in a physical system
+ */
 class Human : public IEntity {
  public:
   /**
@@ -16,6 +20,7 @@ class Human : public IEntity {
    * @brief Destroy the Human object
    */
   ~Human();
+
   /**
    * @brief Gets the speed of the drone
    * @return The speed of the drone
@@ -73,7 +78,7 @@ class Human : public IEntity {
 
   void CreateNewDestination();
 
-  private:
+ private:
   JsonObject details;
   Vector3 position;
   Vector3 direction;

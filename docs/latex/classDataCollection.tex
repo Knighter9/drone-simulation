@@ -1,0 +1,82 @@
+\hypertarget{classDataCollection}{}\doxysection{Data\+Collection Class Reference}
+\label{classDataCollection}\index{DataCollection@{DataCollection}}
+
+
+This class is responsible for collecting the data from the simulation.  
+
+
+
+
+{\ttfamily \#include $<$Data\+Collection.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classDataCollection_a9bad781d709a339fb8d981985b8933dd}{Add\+Data}} (string strategy)
+\begin{DoxyCompactList}\small\item\em Add data to collection. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDataCollection_a534f046df1e11cb7d68eb512aa96dc45}\label{classDataCollection_a534f046df1e11cb7d68eb512aa96dc45}} 
+void \mbox{\hyperlink{classDataCollection_a534f046df1e11cb7d68eb512aa96dc45}{Write\+Data\+To\+File}} ()
+\begin{DoxyCompactList}\small\item\em Write data to file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDataCollection_a94868ab465559a6d8defdb8ea3647f2d}\label{classDataCollection_a94868ab465559a6d8defdb8ea3647f2d}} 
+void \mbox{\hyperlink{classDataCollection_a94868ab465559a6d8defdb8ea3647f2d}{Start\+Time}} ()
+\begin{DoxyCompactList}\small\item\em Start timer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classDataCollection}{Data\+Collection}} \& \mbox{\hyperlink{classDataCollection_ade48ebae9ad3922d7f173aa30003bba9}{Get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Get instance of the collected data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDataCollection_accf695a90d48371d0d973f84a2666d4b}\label{classDataCollection_accf695a90d48371d0d973f84a2666d4b}} 
+vector$<$ string $>$ {\bfseries strategies}
+\item 
+\mbox{\Hypertarget{classDataCollection_a8af53f9e9a77f429ddfaa79b0e9a2e3e}\label{classDataCollection_a8af53f9e9a77f429ddfaa79b0e9a2e3e}} 
+vector$<$ float $>$ {\bfseries fuels}
+\item 
+\mbox{\Hypertarget{classDataCollection_a5e3a29c14625d691f300d12ebe17d4bb}\label{classDataCollection_a5e3a29c14625d691f300d12ebe17d4bb}} 
+vector$<$ float $>$ {\bfseries speeds}
+\item 
+\mbox{\Hypertarget{classDataCollection_a5a3433396e8e165f122f35b16d10d766}\label{classDataCollection_a5a3433396e8e165f122f35b16d10d766}} 
+chrono\+::high\+\_\+resolution\+\_\+clock\+::time\+\_\+point {\bfseries start\+\_\+time}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class is responsible for collecting the data from the simulation. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDataCollection_a9bad781d709a339fb8d981985b8933dd}\label{classDataCollection_a9bad781d709a339fb8d981985b8933dd}} 
+\index{DataCollection@{DataCollection}!AddData@{AddData}}
+\index{AddData@{AddData}!DataCollection@{DataCollection}}
+\doxysubsubsection{\texorpdfstring{AddData()}{AddData()}}
+{\footnotesize\ttfamily void Data\+Collection\+::\+Add\+Data (\begin{DoxyParamCaption}\item[{string}]{strategy }\end{DoxyParamCaption})}
+
+
+
+Add data to collection. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em strategy} & Strategy name \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDataCollection_ade48ebae9ad3922d7f173aa30003bba9}\label{classDataCollection_ade48ebae9ad3922d7f173aa30003bba9}} 
+\index{DataCollection@{DataCollection}!GetInstance@{GetInstance}}
+\index{GetInstance@{GetInstance}!DataCollection@{DataCollection}}
+\doxysubsubsection{\texorpdfstring{GetInstance()}{GetInstance()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classDataCollection}{Data\+Collection}}\& Data\+Collection\+::\+Get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Get instance of the collected data. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classDataCollection}{Data\+Collection}} instance 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/kinde085/csci-\/3081w-\/\+S23/\+Team-\/010-\/23-\/homework4/libs/transit/include/Data\+Collection.\+h\item 
+/home/kinde085/csci-\/3081w-\/\+S23/\+Team-\/010-\/23-\/homework4/libs/transit/src/Data\+Collection.\+cc\end{DoxyCompactItemize}

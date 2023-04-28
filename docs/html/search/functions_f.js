@@ -1,19 +1,5 @@
 var searchData=
 [
-  ['_7ecelebrationdecorator_152',['~CelebrationDecorator',['../classCelebrationDecorator.html#a59689f8c890ac6abcdb708829501aa78',1,'CelebrationDecorator']]],
-  ['_7ecompositefactory_153',['~CompositeFactory',['../classCompositeFactory.html#a5601892e2e4dd1ab9f9ab9316be1cd10',1,'CompositeFactory']]],
-  ['_7edrone_154',['~Drone',['../classDrone.html#a667075abb1eb5c54be6418884a387d14',1,'Drone']]],
-  ['_7edronefactory_155',['~DroneFactory',['../classDroneFactory.html#a757949d7b86a82ad884e3c281e16cbd5',1,'DroneFactory']]],
-  ['_7ehelicopter_156',['~Helicopter',['../classHelicopter.html#ac8d3ea9aa358c9758096a26616fae953',1,'Helicopter']]],
-  ['_7ehelicopterfactory_157',['~HelicopterFactory',['../classHelicopterFactory.html#ac00bcc2c2d190f5d7b199840b94588ee',1,'HelicopterFactory']]],
-  ['_7ehuman_158',['~Human',['../classHuman.html#a93ca0fbf9e5b5bcb6f2f72eeb450219b',1,'Human']]],
-  ['_7ehumanfactory_159',['~HumanFactory',['../classHumanFactory.html#ac8341215917d29213ddc7119fa66fbfe',1,'HumanFactory']]],
-  ['_7eicontroller_160',['~IController',['../classIController.html#a30b618142be776fd779255998a540e08',1,'IController']]],
-  ['_7eientity_161',['~IEntity',['../classIEntity.html#a8aea4fbca51d17a0ce314aaa4633f28e',1,'IEntity']]],
-  ['_7eientityfactory_162',['~IEntityFactory',['../classIEntityFactory.html#a57921a96c43266c435a4d11abd56355c',1,'IEntityFactory']]],
-  ['_7ejumpdecorator_163',['~JumpDecorator',['../classJumpDecorator.html#acc9ef42d52b08ae18e6ca790b545b28d',1,'JumpDecorator']]],
-  ['_7erobot_164',['~Robot',['../classRobot.html#a2aeab6ed0e3dc953c076a2d3937e661d',1,'Robot']]],
-  ['_7erobotfactory_165',['~RobotFactory',['../classRobotFactory.html#a11818d808cce9c99bbb103e13a8ba90b',1,'RobotFactory']]],
-  ['_7esimulationmodel_166',['~SimulationModel',['../classSimulationModel.html#ad7ea1a37e0992bc0704ac5cb01a59bf4',1,'SimulationModel']]],
-  ['_7espindecorator_167',['~SpinDecorator',['../classSpinDecorator.html#ae5d920add78f0b8dc369222645a7575e',1,'SpinDecorator']]]
+  ['update_185',['Update',['../classBatteryDecorator.html#a6c1ddb7b7f07f383c80ff2ab7a2fb727',1,'BatteryDecorator::Update()'],['../classDrone.html#a6798b0bd297ca7a930016cd2dda0b7ff',1,'Drone::Update()'],['../classHelicopter.html#a40a86f3aee09c2825dfe27851072791c',1,'Helicopter::Update()'],['../classHuman.html#ad01c878f8084b3146b53262bf7bf9898',1,'Human::Update()'],['../classIEntity.html#a9a8e8588fd85c7b0d813d60686d4dc2c',1,'IEntity::Update()'],['../classIEntityBaseDecorator.html#aac98b4c160fe348c54393ecb8ddc5142',1,'IEntityBaseDecorator::Update()'],['../classSimulationModel.html#ad409c5965a777ef636114eeef8f9ea48',1,'SimulationModel::Update()']]],
+  ['updateentity_186',['UpdateEntity',['../classIController.html#aae116763f3bbfc0875eb841912df7c59',1,'IController']]]
 ];

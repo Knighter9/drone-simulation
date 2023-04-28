@@ -7,9 +7,6 @@
 #include "IStrategy.h"
 #include "math/vector3.h"
 
-// Represents a drone in a physical system.
-// Drones move using euler integration based on a specified
-// velocity and direction.
 /**
  * @class Drone
  * @brief Represents a drone in a physical system. Drones move using euler

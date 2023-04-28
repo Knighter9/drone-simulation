@@ -2,7 +2,7 @@
 \label{classSimulationModel}\index{SimulationModel@{SimulationModel}}
 
 
-Class \mbox{\hyperlink{classSimulationModel}{Simulation\+Model}} handling the transit simulation. it can communicate with the controller.  
+Class \mbox{\hyperlink{classSimulationModel}{Simulation\+Model}} handling the transit simulation. It can communicate with the controller.  
 
 
 
@@ -50,6 +50,9 @@ std\+::vector$<$ \mbox{\hyperlink{classIEntity}{I\+Entity}} $\ast$ $>$ {\bfserie
 \mbox{\Hypertarget{classSimulationModel_ae3a085ca8d1dfa63f79aa57bb0598e52}\label{classSimulationModel_ae3a085ca8d1dfa63f79aa57bb0598e52}} 
 std\+::vector$<$ \mbox{\hyperlink{classIEntity}{I\+Entity}} $\ast$ $>$ {\bfseries scheduler}
 \item 
+\mbox{\Hypertarget{classSimulationModel_ae4916d3b008c3e1638d9159c91b4bc30}\label{classSimulationModel_ae4916d3b008c3e1638d9159c91b4bc30}} 
+std\+::vector$<$ \mbox{\hyperlink{classIEntity}{I\+Entity}} $\ast$ $>$ {\bfseries charging\+Stations}
+\item 
 \mbox{\Hypertarget{classSimulationModel_afcef95308f9d635f6ab37f8fb0eb7ba7}\label{classSimulationModel_afcef95308f9d635f6ab37f8fb0eb7ba7}} 
 const I\+Graph $\ast$ {\bfseries graph}
 \item 
@@ -59,7 +62,7 @@ const I\+Graph $\ast$ {\bfseries graph}
 
 
 \doxysubsection{Detailed Description}
-Class \mbox{\hyperlink{classSimulationModel}{Simulation\+Model}} handling the transit simulation. it can communicate with the controller. 
+Class \mbox{\hyperlink{classSimulationModel}{Simulation\+Model}} handling the transit simulation. It can communicate with the controller. 
 
 Simulation Model handling the transit simulation. The model can communicate with the controller. 
 
@@ -76,7 +79,7 @@ Add new factory into the simulation.
 
 
 \begin{DoxyParams}{Parameters}
-{\em factory} & -\/ Factory to add into the simulation. \\
+{\em factory} & -\/ Factory to add into the simulation \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classSimulationModel_a0529fb427560a2bde9b8cb62f82e6baf}\label{classSimulationModel_a0529fb427560a2bde9b8cb62f82e6baf}} 
@@ -140,7 +143,7 @@ Updates the simulation.
 
 
 \begin{DoxyParams}{Parameters}
-{\em dt} & Type double contain the time since update was last called. \\
+{\em dt} & Type double contain the time since update was last called \\
 \hline
 \end{DoxyParams}
 

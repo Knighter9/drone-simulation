@@ -1,8 +1,9 @@
 <map id="IEntityFactory" name="IEntityFactory">
-<area shape="rect" id="node1" title="Composite Factory Interface." alt="" coords="317,5,429,32"/>
-<area shape="rect" id="node2" href="$classCompositeFactory.html" title="Factory method for composite class. Inherits from IEntityFactory." alt="" coords="5,80,145,107"/>
-<area shape="rect" id="node3" href="$classDroneFactory.html" title="Drone Factory to produce Drones class." alt="" coords="170,80,279,107"/>
-<area shape="rect" id="node4" href="$classHelicopterFactory.html" title="Helicopter Factory to produce Helicopter class." alt="" coords="304,80,441,107"/>
-<area shape="rect" id="node5" href="$classHumanFactory.html" title="Human Factory to produce Human class." alt="" coords="466,80,583,107"/>
-<area shape="rect" id="node6" href="$classRobotFactory.html" title="Drone Factory to produce Drones class." alt="" coords="608,80,716,107"/>
+<area shape="rect" id="node1" title="Composite Factory Interface." alt="" coords="5,132,117,159"/>
+<area shape="rect" id="node2" href="$classChargingStationFactory.html" title="ChargingStation Factory to produce ChargingStation class." alt="" coords="165,5,340,32"/>
+<area shape="rect" id="node3" href="$classCompositeFactory.html" title="Factory method for composite class. Inherits from IEntityFactory." alt="" coords="183,56,323,83"/>
+<area shape="rect" id="node4" href="$classDroneFactory.html" title="Drone Factory to produce Drones class." alt="" coords="198,107,307,133"/>
+<area shape="rect" id="node5" href="$classHelicopterFactory.html" title="Helicopter Factory to produce Helicopter class." alt="" coords="184,157,321,184"/>
+<area shape="rect" id="node6" href="$classHumanFactory.html" title="Human Factory to produce Human class." alt="" coords="194,208,311,235"/>
+<area shape="rect" id="node7" href="$classRobotFactory.html" title="Robot Factory to produce Robots class." alt="" coords="199,259,307,285"/>
 </map>

@@ -5,6 +5,7 @@
 #include "IStrategy.h"
 
 /**
+ * @class BeelineStrategy
  * @brief this class inhertis from the IStrategy class and is responsible for
  * generating the beeline that the drone will take.
  */
@@ -38,14 +39,3 @@ class BeelineStrategy : public IStrategy {
   Vector3 destination;
 };
 #endif  // BEELINE_H_
-
-// quicker way to just inherit off of path strategy:
-// don't even need a .cc file
-
-// #include "PathStrategy.h"
-
-// class BeelineStrategy : public PathStrategy {
-//   public:
-//     BeelineStrategy(Vector3 pos, Vector3 des)
-//      : PathStrategy({{pos[0], pos[1], pos[2]}, {des[0], des[1], des[2]}}) {}
-// };

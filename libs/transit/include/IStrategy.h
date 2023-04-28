@@ -4,14 +4,13 @@
 #include "IEntity.h"
 
 /**
+ * @class IStrategy
  * @brief Strategy interface
- *
  */
 class IStrategy {
  public:
  /**
   * @brief Move toward next position
-  * 
   * @param entity Entity to move
   * @param dt Delta Time
   */
@@ -19,7 +18,6 @@ class IStrategy {
 
   /**
    * @brief Check if the trip is completed
-   * 
    * @return True if complete, false if not complete 
    */
   virtual bool IsCompleted() = 0;

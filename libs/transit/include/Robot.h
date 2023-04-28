@@ -9,10 +9,9 @@
 
 /**
  * @class Robot
- * @brief Represents a robot in a physical system
- *
+ * @brief Represents a robot in a physical system.
  * Robots move using euler integration based on a specified
- * velocity and direction.
+ * velocity and direction
  */
 class Robot : public IEntity {
  public:

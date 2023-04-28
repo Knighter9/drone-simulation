@@ -75,37 +75,26 @@ $(function() {
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;IEntity.h&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;IStrategy.h&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classBeelineStrategy.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="classBeelineStrategy.html">BeelineStrategy</a> : <span class="keyword">public</span> <a class="code" href="classIStrategy.html">IStrategy</a> {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <a class="code" href="classBeelineStrategy.html#a5672d5a2f179ccde216e46ca1ee2281d">BeelineStrategy</a>(<a class="code" href="classVector3.html">Vector3</a> position, <a class="code" href="classVector3.html">Vector3</a> destination);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classBeelineStrategy.html#ab8d3f5b05d5e9dd06465f5fc4cd4767e">Move</a>(<a class="code" href="classIEntity.html">IEntity</a>* entity, <span class="keywordtype">double</span> dt);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classBeelineStrategy.html#a648eae389f7844f210ac267313ef6233">IsCompleted</a>();</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <a class="code" href="classVector3.html">Vector3</a> position;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <a class="code" href="classVector3.html">Vector3</a> destination;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;};</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#endif  // BEELINE_H_</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">// quicker way to just inherit off of path strategy:</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">// don&#39;t even need a .cc file</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">// #include &quot;PathStrategy.h&quot;</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">// class BeelineStrategy : public PathStrategy {</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">//   public:</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">//     BeelineStrategy(Vector3 pos, Vector3 des)</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">//      : PathStrategy({{pos[0], pos[1], pos[2]}, {des[0], des[1], des[2]}}) {}</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">// };</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classBeelineStrategy.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="classBeelineStrategy.html">BeelineStrategy</a> : <span class="keyword">public</span> <a class="code" href="classIStrategy.html">IStrategy</a> {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <a class="code" href="classBeelineStrategy.html#a5672d5a2f179ccde216e46ca1ee2281d">BeelineStrategy</a>(<a class="code" href="classVector3.html">Vector3</a> position, <a class="code" href="classVector3.html">Vector3</a> destination);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classBeelineStrategy.html#ab8d3f5b05d5e9dd06465f5fc4cd4767e">Move</a>(<a class="code" href="classIEntity.html">IEntity</a>* entity, <span class="keywordtype">double</span> dt);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classBeelineStrategy.html#a648eae389f7844f210ac267313ef6233">IsCompleted</a>();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <a class="code" href="classVector3.html">Vector3</a> position;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <a class="code" href="classVector3.html">Vector3</a> destination;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;};</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#endif  // BEELINE_H_</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassBeelineStrategy_html_a648eae389f7844f210ac267313ef6233"><div class="ttname"><a href="classBeelineStrategy.html#a648eae389f7844f210ac267313ef6233">BeelineStrategy::IsCompleted</a></div><div class="ttdeci">bool IsCompleted()</div><div class="ttdoc">Check if the trip is completed.</div><div class="ttdef"><b>Definition:</b> BeelineStrategy.cc:17</div></div>
 <div class="ttc" id="aclassIStrategy_html"><div class="ttname"><a href="classIStrategy.html">IStrategy</a></div><div class="ttdoc">Strategy interface.</div><div class="ttdef"><b>Definition:</b> IStrategy.h:10</div></div>
 <div class="ttc" id="aclassVector3_html"><div class="ttname"><a href="classVector3.html">Vector3</a></div><div class="ttdoc">A class built solely to handle 3D vector mathematics.</div><div class="ttdef"><b>Definition:</b> vector3.h:9</div></div>
-<div class="ttc" id="aclassBeelineStrategy_html"><div class="ttname"><a href="classBeelineStrategy.html">BeelineStrategy</a></div><div class="ttdoc">this class inhertis from the IStrategy class and is responsible for generating the beeline that the d...</div><div class="ttdef"><b>Definition:</b> BeelineStrategy.h:11</div></div>
+<div class="ttc" id="aclassBeelineStrategy_html"><div class="ttname"><a href="classBeelineStrategy.html">BeelineStrategy</a></div><div class="ttdoc">this class inhertis from the IStrategy class and is responsible for generating the beeline that the d...</div><div class="ttdef"><b>Definition:</b> BeelineStrategy.h:12</div></div>
 <div class="ttc" id="aclassBeelineStrategy_html_ab8d3f5b05d5e9dd06465f5fc4cd4767e"><div class="ttname"><a href="classBeelineStrategy.html#ab8d3f5b05d5e9dd06465f5fc4cd4767e">BeelineStrategy::Move</a></div><div class="ttdeci">void Move(IEntity *entity, double dt)</div><div class="ttdoc">Move toward next position.</div><div class="ttdef"><b>Definition:</b> BeelineStrategy.cc:6</div></div>
-<div class="ttc" id="aclassIEntity_html"><div class="ttname"><a href="classIEntity.html">IEntity</a></div><div class="ttdoc">Represents an entity in a physical system.</div><div class="ttdef"><b>Definition:</b> IEntity.h:21</div></div>
+<div class="ttc" id="aclassIEntity_html"><div class="ttname"><a href="classIEntity.html">IEntity</a></div><div class="ttdoc">Represents an entity in a physical system. An IEntity object has a unique ID, a position,...</div><div class="ttdef"><b>Definition:</b> IEntity.h:20</div></div>
 <div class="ttc" id="aclassBeelineStrategy_html_a5672d5a2f179ccde216e46ca1ee2281d"><div class="ttname"><a href="classBeelineStrategy.html#a5672d5a2f179ccde216e46ca1ee2281d">BeelineStrategy::BeelineStrategy</a></div><div class="ttdeci">BeelineStrategy(Vector3 position, Vector3 destination)</div><div class="ttdoc">Construct a new Beeline Strategy object.</div><div class="ttdef"><b>Definition:</b> BeelineStrategy.cc:3</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
