@@ -35,3 +35,4 @@ void DataCollection::WriteDataToFile() {
         cout << "Unable to open file: " << fn << endl;
     }
 }
+        

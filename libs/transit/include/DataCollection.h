@@ -3,7 +3,14 @@
 
 /* Includes */
 #include <iostream>
+/* Includes */
+#include <iostream>
 #include <fstream>
+#include <vector>
+#include <chrono>
+
+/* namespace */
+using namespace std;
 #include <vector>
 #include <chrono>
 

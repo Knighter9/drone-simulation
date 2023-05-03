@@ -190,6 +190,9 @@ int main(int argc, char**argv) {
         std::cout << "Usage: ./build/bin/transit_service <port> apps/transit_service/web/" << std::endl;
     }
 
+    /* Writes data to .csv file */
+    DataCollection::GetInstance().WriteDataToFile(); 
+
     return 0;
 }
 
