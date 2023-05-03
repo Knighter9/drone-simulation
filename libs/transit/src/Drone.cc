@@ -102,8 +102,6 @@ void Drone::Update(double dt, std::vector<IEntity*> scheduler) {
       nearestEntity = nullptr;
       available = true;
       pickedUp = false;
-      cout << "strat: %s" << nearestEntity->GetStrategyName() << endl;
-      DataCollection::GetInstance().AddData(nearestEntity->GetStrategyName());
     }
     DataCollection::GetInstance().WriteDataToFile();
   }
