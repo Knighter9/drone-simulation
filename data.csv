@@ -1,0 +1,22 @@
+Strategy, Speed (ms)
+astar, 15821.8
+astar, 62091.1
+astar, 67073.3
+astar, 4051.37
+astar, 10221.4
+astar, 44875.1
+astar, 48489
+astar, 4195.82
+astar, 19369
+dijkstra, 83027.3
+dijkstra, 83313.2
+dfs, 90026.4
+dfs, 90102.3
+dijkstra, 80002.5
+dijkstra, 80385.3
+dfs, 80395
+dfs, 80403.1
+astar, 88665.1
+astar, 88688.9
+astar, 88717.4
+astar, 88731
