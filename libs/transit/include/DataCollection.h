@@ -3,7 +3,14 @@
 
 /* Includes */
 #include <iostream>
+/* Includes */
+#include <iostream>
 #include <fstream>
+#include <vector>
+#include <chrono>
+
+/* namespace */
+using namespace std;
 #include <vector>
 #include <chrono>
 
@@ -30,7 +37,7 @@ class DataCollection {
    * @brief Add data to collection
    * @param strategy Strategy name
    */
-  void AddData(string strategy); /*, float fuel*/
+  void AddData(string strategy); /*, float battery*/
 
   /**
    * @brief Write data to file

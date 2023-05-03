@@ -81,11 +81,12 @@ void Drone::Update(double dt, std::vector<IEntity*> scheduler) {
     toRobot->Move(this, dt);
 
     if (toRobot->IsCompleted()) {
-      DataCollection::GetInstance().StartTime();
+      DataCollection::GetInstance().StartTime(); // Start timer for data collection
       delete toRobot;
       toRobot = nullptr;
       pickedUp = true;
     }
+
   } else if (toFinalDestination) {
     toFinalDestination->Move(this, dt);
 
@@ -101,6 +102,8 @@ void Drone::Update(double dt, std::vector<IEntity*> scheduler) {
       nearestEntity = nullptr;
       available = true;
       pickedUp = false;
+      cout << "strat: %s" << nearestEntity->GetStrategyName() << endl;
+      DataCollection::GetInstance().AddData(nearestEntity->GetStrategyName());
     }
     DataCollection::GetInstance().WriteDataToFile();
   }

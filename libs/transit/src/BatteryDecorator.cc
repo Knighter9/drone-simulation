@@ -96,7 +96,7 @@ void BatteryDecorator::Update(double dt, std::vector<IEntity*> scheduler,
         std::cout << "sorry no movement possible" << std::endl;
     } else if (toChargingStation) {
         toChargingStation->Move(this, dt);
-        batteryLife = batteryLife - 0.005;
+        // batteryLife = batteryLife - 0.005;
         if (toChargingStation->IsCompleted()) {
             // make it so we are in a charging state;
             charging = true;
@@ -135,7 +135,7 @@ void BatteryDecorator::Update(double dt, std::vector<IEntity*> scheduler,
             // do a simple check to see if going to pick up the robot is
             // possible with our current battery state.
             entity->Update(dt, scheduler);
-            batteryLife = batteryLife - 0.001;
+            // batteryLife = batteryLife - 0.001;
         } else {
             // std::cout << "must recharge for upcoming trip." << std::endl;
             // std::cout << "battery at: " << batteryLife << std::endl;
@@ -147,6 +147,6 @@ void BatteryDecorator::Update(double dt, std::vector<IEntity*> scheduler,
         // batteryLife = batteryLife - 0.001;
     } else {
         entity->Update(dt, scheduler);
-        batteryLife = batteryLife - 0.005;
+        // batteryLife = batteryLife - 0.005;
     }
 }
