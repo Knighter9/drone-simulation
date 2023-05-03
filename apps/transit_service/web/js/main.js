@@ -179,6 +179,7 @@ function changeView() {
   currentView = $("#entitySelect").val();
   if (currentView >= 0) {
     controls.target.copy(entities[currentView].position);
+    updateBatteryLevel(entities[currentView]);
     controls.update();
   }
 }
@@ -218,9 +219,22 @@ var msg = "";
 function displayNotification(data) {
   notifbar = document.getElementById("notification-bar");
   // if(msg != data.info) {
-    notifbar.textContent += data.info;
+    notifbar.textContent += JSON.stringify(myObject);
     // msg = data.info;
   // }
+}
+function updateBatteryLevel(data){
+  const batteryLevelContainer = document.getElementById('battery-level-container');
+  const batteryLevelDiv = documen.getElementById('battery-level');
+
+  if(data.type == "drone"){
+    batteryLevelContainer.style.display = 'block';
+
+    batteryLevelDiv.style.width = '${data.batteryLevel}%';
+  }
+  else {
+    batteryLevelContainer.style.display = 'none';
+  }
 }
 
 function displayJSON(data) {

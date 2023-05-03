@@ -65,7 +65,28 @@
 </head>
 
 <body>
-	<div id="notification-bar"></div>
+	<style>
+		.battery-level-container {
+		  position: absolute;
+		  top: 10px; 
+		  left: 10px; 
+		  width: 200px;
+		  height: 20px;
+		  background-color: #f3f3f3;
+		  border: 1px solid #bbb;
+		  display: none; 
+		}
+	  
+		.battery-level {
+		  height: 100%;
+		  background-color: #4CAF50;
+		  width: 0%; /* Set the initial width to 0% */
+		}
+	  </style>
+	<div id="notification-bar"><p>
+		Notifications:
+	</p>
+	</div>
 	<div id="menu">
 		<div>Change View:<br> <select id="entitySelect" onchange='changeView()'>
 				<option value="-1">Select entity...</option>
@@ -74,6 +95,9 @@
 		</div>
 		<div><br><input type="checkbox" onclick='toggleRoutes()'> Show All Routes
 		</div>
+	</div>
+	<div id="battery-level-container" ckass="battery-level-container">
+		<div id="battery-level" class="battery-level"></div>
 	</div>
 	<div id="scene-container"></div>
 	<!-- Include the "main" graphics script and run it. -->

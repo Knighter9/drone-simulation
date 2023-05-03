@@ -168,6 +168,11 @@
         }
         var humanID = 1;
         function addHuman() {
+            // limit the number of humans so we don't crash the sim
+            if(humanID > 50) {
+                console.log("Max number of humans reached");
+                return;
+            }
             api.sendCommand("CreateEntity", {
                 "type": "human",
                 "name": "Human-" + humanID,

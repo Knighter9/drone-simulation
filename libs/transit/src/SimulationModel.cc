@@ -46,9 +46,10 @@ void SimulationModel::CreateEntity(JsonObject& entity) {
 
   // add entity to charing station if it is a charging station;
   if (type.compare("charging station") == 0) {
-    std::cout << "adding a new charing station " << std::endl;
+    std::cout << "adding a new charging station " << std::endl;
     chargingStations.push_back(myNewEntity);
   }
+  controller.SendEventToView("observer",  entity);
 }
 
 /// Schedules a trip for an object in the scene
@@ -72,6 +73,7 @@ void SimulationModel::ScheduleTrip(JsonObject& details) {
     }
   }
   controller.SendEventToView("TripScheduled", details);
+  controller.SendEventToView("observe", details); // send to frontend
 }
 
 /// Updates the simulation
