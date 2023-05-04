@@ -120,6 +120,9 @@ public:
         JsonObject eventData;
         eventData["event"] = event;
         eventData["details"] = details;
+        if(event == 'observe'){
+            eventData.details.info = "Event: " + event;
+        }
         sendMessage(eventData.ToString());
     }
 

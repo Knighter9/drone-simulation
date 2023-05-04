@@ -220,7 +220,7 @@ var msg = "";
 function displayNotification(data) {
   notifbar = document.getElementById("notification-bar");
   // if(msg != data.info) {
-    notifbar.textContent += JSON.stringify(myObject);
+    notifbar.textContent += data.info + "\n";
     // msg = data.info;
   // }
 }
