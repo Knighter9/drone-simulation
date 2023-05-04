@@ -4,7 +4,7 @@
 #include "SimulationModel.h"
 #include "routing_api.h"
 #include "DataCollection.h"
-
+#include "BatteryDecorator.h"
 //--------------------  Controller ----------------------------
 
 /// A Transit Service that communicates with a web page through web sockets.  It also acts as the controller
@@ -21,9 +21,6 @@ public:
     void ReceiveCommand(const std::string& cmd, JsonObject& data, JsonObject& returnValue) {
         //std::cout << cmd << ": " << data << std::endl;
         if (cmd == "CreateEntity") {
-            if(data.params.type == "drone"){
-                data.params["bat"] = 100;
-            }
             model.CreateEntity(data);
         }
         else if (cmd == "ScheduleTrip") {
@@ -54,7 +51,7 @@ public:
 
             for (std::map<int, const IEntity*>::iterator it = updateEntites.begin(); it != updateEntites.end(); it++) {
                 // Send updated entities
-                SendEntity("UpdateEntity", *it->second, true);
+                SendEntity("UpdateEntity", *it->second, false);
             }
         }
     }
@@ -72,8 +69,10 @@ public:
         JsonArray dir = {dir_.x, dir_.y, dir_.z};
         details["pos"] = pos;
         details["dir"] = dir;
-        if (entity.GetDetails().type == "Drone") {
-            details["bat"] = entity.getBattery();
+        if (entity.GetType() == "drone") {
+            const BatteryDecorator& drone = dynamic_cast<const BatteryDecorator&>(entity);
+            details["bat"] = drone.GetBattery();
+            details["type"] = "drone";
         }
 
         std::string col_ = entity.GetColor();
@@ -117,11 +116,14 @@ public:
 
     /// Allows messages to be passed back to the view
     void SendEventToView(const std::string& event, const JsonObject& details) {
+        std::string s = event;
         JsonObject eventData;
         eventData["event"] = event;
         eventData["details"] = details;
-        if(event == 'observe'){
-            eventData.details.info = "Event: " + event;
+        if(s == "observe"){
+            JsonObject updatedDetails = details;
+            updatedDetails["info"] = "Trip scheduled, trip name: " + updatedDetails["name"].ToString();
+            eventData["details"] = updatedDetails;
         }
         sendMessage(eventData.ToString());
     }

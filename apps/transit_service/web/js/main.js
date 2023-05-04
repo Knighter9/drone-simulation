@@ -231,7 +231,7 @@ function updateBatteryLevel(data){
   if(data.type == "drone"){
     batteryLevelContainer.style.display = 'block';
 
-    batteryLevelDiv.style.width = '${data.batteryLevel}%';
+    batteryLevelDiv.style.width = data.bat;
   }
   else {
     batteryLevelContainer.style.display = 'none';

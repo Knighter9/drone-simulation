@@ -158,6 +158,7 @@ class IEntity {
    */
   virtual void GetNearestChargingStation() {}
 
+  virtual std::string GetType() const {return "";}
   /**
    * @brief Generates a random number
    * @param Min Lower bound
