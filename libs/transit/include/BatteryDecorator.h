@@ -74,6 +74,12 @@ class BatteryDecorator : public IEntityBaseDecorator {
    */
   bool NextPickupPossible(double dt, std::vector<IEntity*> scheduler);
 
+  /**
+   * @brief Gets the battery life of the drone
+   * @return The battery life of the drone
+   */
+  float GetBattery() { return batteryLife; }
+
  private:
   float batteryLife;  // 100 will be fully charged. 0 will be empty.
   bool charging;

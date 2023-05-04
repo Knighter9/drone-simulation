@@ -21,6 +21,9 @@ public:
     void ReceiveCommand(const std::string& cmd, JsonObject& data, JsonObject& returnValue) {
         //std::cout << cmd << ": " << data << std::endl;
         if (cmd == "CreateEntity") {
+            if(data.params.type == "drone"){
+                data.params["bat"] = 100;
+            }
             model.CreateEntity(data);
         }
         else if (cmd == "ScheduleTrip") {
@@ -51,7 +54,7 @@ public:
 
             for (std::map<int, const IEntity*>::iterator it = updateEntites.begin(); it != updateEntites.end(); it++) {
                 // Send updated entities
-                SendEntity("UpdateEntity", *it->second, false);
+                SendEntity("UpdateEntity", *it->second, true);
             }
         }
     }
@@ -69,6 +72,10 @@ public:
         JsonArray dir = {dir_.x, dir_.y, dir_.z};
         details["pos"] = pos;
         details["dir"] = dir;
+        if (entity.GetDetails().type == "Drone") {
+            details["bat"] = entity.getBattery();
+        }
+
         std::string col_ = entity.GetColor();
         if(col_ != "None") details["color"] = col_;
         SendEventToView(event, details);

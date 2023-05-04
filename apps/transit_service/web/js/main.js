@@ -56,6 +56,7 @@ $( document ).ready(function() {
 
           if (e.id in entities) {
             var model = entities[e.id];
+            model.bat = e.bat;
             model.position.x = e.pos[0];
             model.position.y = e.pos[1];
             model.position.z = e.pos[2];
