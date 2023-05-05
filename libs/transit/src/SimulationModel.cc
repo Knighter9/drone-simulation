@@ -42,6 +42,7 @@ void SimulationModel::CreateEntity(JsonObject& entity) {
   if (type.compare("charging station") == 0) {
     std::cout << "adding a new charging station " << std::endl;
     chargingStations.push_back(myNewEntity);
+    controller.AddEntity(*myNewEntity);
     return;
   }
 
