@@ -86,6 +86,7 @@ class BatteryDecorator : public IEntityBaseDecorator {
   std::string GetType() const override {return "drone";}
 
  private:  // 100 will be fully charged. 0 will be empty.
+  
   float batteryLife; 
   bool charging;
   IEntity* nearestChargingStation;

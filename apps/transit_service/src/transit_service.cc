@@ -62,6 +62,11 @@ public:
         if (includeDetails) {
             details["details"] = entity.GetDetails();
         }
+        if (entity.GetType() == "drone") {
+            const BatteryDecorator& drone = dynamic_cast<const BatteryDecorator&>(entity);
+            details["bat"] = drone.GetBattery();
+            details["type"] = "drone";
+        }
         details["id"] = entity.GetId();
         Vector3 pos_ = entity.GetPosition();
         Vector3 dir_ = entity.GetDirection();
@@ -69,12 +74,6 @@ public:
         JsonArray dir = {dir_.x, dir_.y, dir_.z};
         details["pos"] = pos;
         details["dir"] = dir;
-        if (entity.GetType() == "drone") {
-            const BatteryDecorator& drone = dynamic_cast<const BatteryDecorator&>(entity);
-            details["bat"] = drone.GetBattery();
-            details["type"] = "drone";
-        }
-
         std::string col_ = entity.GetColor();
         if(col_ != "None") details["color"] = col_;
         SendEventToView(event, details);
@@ -203,7 +202,7 @@ int main(int argc, char**argv) {
     }
 
     /* Writes data to .csv file */
-    DataCollection::GetInstance().WriteDataToFile(); 
+    //DataCollection::GetInstance()->WriteDataToFile(); 
 
     return 0;
 }

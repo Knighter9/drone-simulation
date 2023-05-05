@@ -16,7 +16,7 @@ using namespace std;
  * @brief This class is responsible for collecting the data
  * from the simulation
  */
-class DataCollection : public BatteryDecorator {
+class DataCollection {
  public:
   /**
    * @brief Get instance of the collected data

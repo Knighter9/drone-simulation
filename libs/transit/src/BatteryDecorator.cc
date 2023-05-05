@@ -133,7 +133,7 @@ void BatteryDecorator::Update(double dt, std::vector<IEntity*> scheduler,
         }
     }
     /* Add data once dropped off */
-    DataCollection::GetInstance().AddData(entity->GetStrategyName(), batteryLife, distToFinalLocation);
+    //DataCollection::GetInstance().AddData(entity->GetStrategyName(), batteryLife, distToFinalLocation);
 
     // LORE: What's happening here?
     entity->Update(dt, scheduler);
