@@ -32,23 +32,23 @@ SimulationModel::~SimulationModel() {
 }
 
 void SimulationModel::CreateEntity(JsonObject& entity) {
+  controller.SendEventToView("observer",  entity);
   std::string type = entity["type"];
   std::string name = entity["name"];
   JsonArray position = entity["position"];
   std::cout << name << ": " << position << std::endl;
-
   IEntity* myNewEntity = compFactory->CreateEntity(entity);
   myNewEntity->SetGraph(graph);
+  if (type.compare("charging station") == 0) {
+    std::cout << "adding a new charging station " << std::endl;
+    chargingStations.push_back(myNewEntity);
+    return;
+  }
 
   // Call AddEntity to add it to the view
   controller.AddEntity(*myNewEntity);
   entities.push_back(myNewEntity);
 
-  // add entity to charing station if it is a charging station;
-  if (type.compare("charging station") == 0) {
-    std::cout << "adding a new charing station " << std::endl;
-    chargingStations.push_back(myNewEntity);
-  }
 }
 
 /// Schedules a trip for an object in the scene
@@ -72,6 +72,7 @@ void SimulationModel::ScheduleTrip(JsonObject& details) {
     }
   }
   controller.SendEventToView("TripScheduled", details);
+  controller.SendEventToView("observe", details); // send to frontend
 }
 
 /// Updates the simulation

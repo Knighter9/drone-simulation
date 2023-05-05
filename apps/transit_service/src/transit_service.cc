@@ -4,7 +4,7 @@
 #include "SimulationModel.h"
 #include "routing_api.h"
 #include "DataCollection.h"
-
+#include "BatteryDecorator.h"
 //--------------------  Controller ----------------------------
 
 /// A Transit Service that communicates with a web page through web sockets.  It also acts as the controller
@@ -62,6 +62,11 @@ public:
         if (includeDetails) {
             details["details"] = entity.GetDetails();
         }
+        if (entity.GetType() == "drone") {
+            const BatteryDecorator& drone = dynamic_cast<const BatteryDecorator&>(entity);
+            details["bat"] = drone.GetBattery();
+            details["type"] = "drone";
+        }
         details["id"] = entity.GetId();
         Vector3 pos_ = entity.GetPosition();
         Vector3 dir_ = entity.GetDirection();
@@ -110,9 +115,18 @@ public:
 
     /// Allows messages to be passed back to the view
     void SendEventToView(const std::string& event, const JsonObject& details) {
+        std::string s = event;
         JsonObject eventData;
         eventData["event"] = event;
         eventData["details"] = details;
+        if(s == "observe"){
+            JsonObject updatedDetails = details;
+            std::string s2 = "Trip scheduled\nTrip name: " + updatedDetails["name"].ToString();
+            s2 += "\nStart Location: \n" + updatedDetails["start"].ToString();
+            s2 += "\nDestination: \n" + updatedDetails["end"].ToString();
+            updatedDetails["info"] = s2;
+            eventData["details"] = updatedDetails;
+        }
         sendMessage(eventData.ToString());
     }
 
@@ -191,7 +205,7 @@ int main(int argc, char**argv) {
     }
 
     /* Writes data to .csv file */
-    DataCollection::GetInstance().WriteDataToFile(); 
+    //DataCollection::GetInstance()->WriteDataToFile(); 
 
     return 0;
 }

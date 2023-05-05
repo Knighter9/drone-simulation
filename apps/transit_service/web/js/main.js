@@ -55,7 +55,12 @@ $( document ).ready(function() {
           var e = data.details;
 
           if (e.id in entities) {
+            if(e.type === 'drone'){
+                entities[e.id]["bat"] = e.bat;
+                entities[e.id]["type"] = e.type;
+            }
             var model = entities[e.id];
+            model.bat = e.bat;
             model.position.x = e.pos[0];
             model.position.y = e.pos[1];
             model.position.z = e.pos[2];
@@ -97,6 +102,7 @@ $( document ).ready(function() {
 
           if (currentView >= 0) {
             controls.target.copy(entities[currentView].position);
+            updateBatteryLevel(entities[currentView]);
             controls.update();
           }
         }
@@ -179,6 +185,7 @@ function changeView() {
   currentView = $("#entitySelect").val();
   if (currentView >= 0) {
     controls.target.copy(entities[currentView].position);
+    updateBatteryLevel(entities[currentView]);
     controls.update();
   }
 }
@@ -218,10 +225,52 @@ var msg = "";
 function displayNotification(data) {
   notifbar = document.getElementById("notification-bar");
   // if(msg != data.info) {
-    notifbar.textContent += data.info;
+    notifbar.textContent += data.info + "\n";
     // msg = data.info;
   // }
 }
+
+function updateBatteryLevel(entity) {
+  // Check if the entity is a drone
+  var batteryLevelContainer = document.getElementById('battery-level-container');
+  if (entity.type === 'drone') {
+    batteryLevelContainer.style.display = 'block';
+    // Get the battery percentage of the drone
+    const batteryPercentage = entity.bat;
+
+    // Define the maximum width of the battery bar
+    const maxBarWidth = 200; // adjust this value based on the width of #battery-level-container
+
+    // Calculate the width of the battery bar based on the battery percentage
+    const batteryBarWidth = calculateBatteryBarWidth(batteryPercentage, maxBarWidth);
+
+    // Set the width of the battery bar element
+    const batteryBarElement = document.getElementById('battery-level');
+    batteryBarElement.style.width = `${batteryBarWidth}px`;
+    updateBatteryColor(batteryPercentage);
+  }
+  else {
+    batteryLevelContainer.style.display = 'none';
+  }
+}
+
+function calculateBatteryBarWidth(batteryPercentage, maxBarWidth) {
+  return (batteryPercentage / 100) * maxBarWidth;
+}
+
+function updateBatteryColor(batteryPercentage) {
+  var batteryLevel = document.getElementById('battery-level');
+  
+  if (batteryPercentage < 25) {
+    batteryLevel.style.backgroundColor = 'red';
+  } else if (batteryPercentage < 50) {
+    batteryLevel.style.backgroundColor = 'orange';
+  } else {
+    batteryLevel.style.backgroundColor = '#4CAF50';
+  }
+}
+
+
 
 function displayJSON(data) {
   //data should be a standard JSON-style object
@@ -320,7 +369,6 @@ function loadModels() {
       texture.encoding = THREE.sRGBEncoding;
       texture.anisotropy = 16;
       var objmaterial = new THREE.MeshStandardMaterial( { map: texture } );
-
       const texture2 = textureLoader.load(sceneTexture );
       texture.encoding = THREE.sRGBEncoding;
       texture.anisotropy = 16;
@@ -484,8 +532,16 @@ function addEntity(data) {
 
   var scale = new THREE.Vector3(data.details.scale[0], data.details.scale[1], data.details.scale[2]);
   var id = data.id;
+
+  // Add the bat and type properties for a drone entity to the details object
+  if (data.type === 'drone') {
+    data.details.bat = data.bat;
+    data.details.type = data.type;
+  }
+
   loader.load( data.details.mesh, gltf => onLoad( gltf, position, scale, data.details.start, data.details.duration, data.details, id ), onProgress, onError );
 }
+
 
 function removeEntity(id) {
   console.log(models);

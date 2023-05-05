@@ -13,7 +13,7 @@ BatteryDecorator::~BatteryDecorator() {
 }
 
 bool BatteryDecorator::NeedRecharge() {
-    return batteryLife <= 30.0;
+    return batteryLife <= 40.0;
 }
 
 bool BatteryDecorator::FullyCharged() {
@@ -53,7 +53,7 @@ bool BatteryDecorator::NextPickupPossible(double dt, const std::vector<IEntity*>
 
         // Calculate the maximum distance the drone can travel before needing a recharge
         float totalDistance = distToFinalLocation + minDis;
-        int maxNumberCalls = floor((batteryLife - 20) / 0.005);
+        int maxNumberCalls = floor((batteryLife - 20) / 0.05);
         float maxTotalDistance = maxNumberCalls * entity->GetSpeed() * dt;
 
         return totalDistance <= maxTotalDistance;
@@ -89,7 +89,7 @@ void BatteryDecorator::GetNearestChargingStation(const std::vector<IEntity*> cha
 void BatteryDecorator::Update(double dt, std::vector<IEntity*> scheduler,
                               std::vector<IEntity*> chargingStations) {
     if (batteryLife <= 0) {
-        std::cout << "Sorry, no movement possible." << std::endl;
+        return;
     }
 
     // Charging at station case
@@ -101,7 +101,7 @@ void BatteryDecorator::Update(double dt, std::vector<IEntity*> scheduler,
             nearestChargingStation->SetAvailability(true);
             nearestChargingStation = nullptr;
         } else {
-            batteryLife = std::min(batteryLife + 1.0, 100.0);
+            batteryLife = std::min(batteryLife + .1, 100.0);
         }
     }
 
@@ -123,7 +123,7 @@ void BatteryDecorator::Update(double dt, std::vector<IEntity*> scheduler,
             DataCollection::GetInstance().GetStartingBattery(batteryLife);
             
             entity->Update(dt, scheduler);
-            batteryLife -= 0.001;
+            batteryLife -= 0.01;
         } else {
             GetNearestChargingStation(chargingStations);
             std::cout << "Must recharge for upcoming trip." << std::endl;
@@ -134,5 +134,5 @@ void BatteryDecorator::Update(double dt, std::vector<IEntity*> scheduler,
     }
 
     entity->Update(dt, scheduler);
-    batteryLife -= 0.005;
+    batteryLife -= 0.05;
 }

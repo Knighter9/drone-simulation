@@ -78,8 +78,16 @@ class BatteryDecorator : public IEntityBaseDecorator {
    */
   bool NextPickupPossible(double dt, std::vector<IEntity*> scheduler);
 
- private:
-  float batteryLife;  // 100 will be fully charged. 0 will be empty.
+  /**
+   * @brief Gets the battery life of the drone
+   * @return The battery life of the drone
+   */
+  float GetBattery() const { return batteryLife; }
+  std::string GetType() const override {return "drone";}
+
+ private:  // 100 will be fully charged. 0 will be empty.
+  
+  float batteryLife; 
   bool charging;
   IEntity* nearestChargingStation;
   IStrategy* toChargingStation = nullptr;
