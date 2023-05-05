@@ -16,7 +16,7 @@ using namespace std;
  * @brief This class is responsible for collecting the data
  * from the simulation
  */
-class DataCollection : public BatteryDecorator {
+class DataCollection {
  public:
   /**
    * @brief Get instance of the collected data
@@ -31,7 +31,7 @@ class DataCollection : public BatteryDecorator {
    * @brief Add data to collection
    * @param strategy Strategy name
    */
-  void AddData(string strategy, float battery, float distance);
+  void AddData(float battery);
 
   /**
    * @brief Write data to file
@@ -52,6 +52,10 @@ class DataCollection : public BatteryDecorator {
   float GetStartingBattery(float battery) {
     battery_start = battery;
   }
+
+  void GetStratName(string strategy);
+
+  void GetDistance(float dist);
 
  protected:
   /* Private constructor and destructor to prevent instantiation */
