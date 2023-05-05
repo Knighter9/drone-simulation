@@ -39,10 +39,11 @@ Over the course of the project we had roughly 3 sprint periods. What worked well
 
 ## UML Diagrams
 ### Extension #1 UML
-![CSCI 3081W Homework 4 Extension #1](https://media.github.umn.edu/user/20875/files/49f23c90-1032-480b-bb55-825490648f5b)
+![CSCI 3081W Homework 4 Extension #1](https://media.github.umn.edu/user/20875/files/7ad228c4-f42c-4514-a577-c381e4d3db4b)
+
 
 ### Extension #2 UML
-![CSCI 3081W Homework 4 Extension #2](https://media.github.umn.edu/user/20875/files/e5ea2fb0-71dd-40c4-a77a-c2f655a48358)
+![CSCI 3081W Homework 4 Extension #2 (1)](https://media.github.umn.edu/user/20875/files/56cc6567-4ab3-4bf0-961b-f0b2121ad7d5)
 
 
 ## Docker link
