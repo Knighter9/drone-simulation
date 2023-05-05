@@ -31,7 +31,7 @@ class DataCollection {
    * @brief Add data to collection
    * @param strategy Strategy name
    */
-  void AddData(string strategy, float battery, float distance);
+  void AddData(float battery);
 
   /**
    * @brief Write data to file
@@ -52,6 +52,10 @@ class DataCollection {
   float GetStartingBattery(float battery) {
     battery_start = battery;
   }
+
+  void GetStratName(string strategy);
+
+  void GetDistance(float dist);
 
  protected:
   /* Private constructor and destructor to prevent instantiation */

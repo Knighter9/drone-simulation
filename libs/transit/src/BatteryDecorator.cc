@@ -4,7 +4,7 @@
 #include "BatteryDecorator.h"
 
 // Global Variable
-float distToFinalLocation = 0;
+float distToFinalLocation;
 
 BatteryDecorator::~BatteryDecorator() {
     delete entity;
@@ -35,6 +35,7 @@ bool BatteryDecorator::NextPickupPossible(double dt, const std::vector<IEntity*>
     }
 
     if (closestEntity) {
+        float distToFinalLocation = 0;
         // Check if the flight is possible
         std::vector<std::vector<float>> path;
         Vector3 startVec = closestEntity->GetPosition();
@@ -120,7 +121,6 @@ void BatteryDecorator::Update(double dt, std::vector<IEntity*> scheduler,
             std::cout << "Battery at: " << batteryLife << std::endl;
         } else if (NextPickupPossible(dt, scheduler)) {
             /* Start data stuff when pick up is possible */
-            DataCollection::GetInstance().StartTime(); 
             DataCollection::GetInstance().GetStartingBattery(batteryLife);
             
             // LORE: Does this go?
@@ -131,9 +131,9 @@ void BatteryDecorator::Update(double dt, std::vector<IEntity*> scheduler,
             std::cout << "Must recharge for upcoming trip." << std::endl;
             std::cout << "Battery at: " << batteryLife << std::endl;
         }
+        /* Add data once dropped off */
+        DataCollection::GetInstance().AddData(batteryLife);
     }
-    /* Add data once dropped off */
-    //DataCollection::GetInstance().AddData(entity->GetStrategyName(), batteryLife, distToFinalLocation);
 
     // LORE: What's happening here?
     entity->Update(dt, scheduler);

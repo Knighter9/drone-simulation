@@ -10,9 +10,6 @@ Ben Knight (knigh501)
 This project represents a drone simulation system. In this simulation, users can schedule trips for robots on a map of the University of Minnesota campus. Users are in control of the robots' starting point, final destination, as well as path routing strategy. Drones will then pick up the scheduled robots, carry them to their destination using the appropriate routing strategy, and drop them off.  
 
 ## How to Run the Simulation
-////i'm assuming this is not considering docker  
-////dont totally know what they expect for this part, kinda just copied the instructions they gave us  
-
 For these instructions, we will assume you are using port 8081.  
 1. Connect to a CSE lab machine  
 2. Locate the Team-010-23-homework4 repo  
@@ -30,29 +27,23 @@ In our simulation, we have included both a helicopter entity and human entities.
 
 
 ## New Feature #1 - Battery Recharging
-Our first extension was adding a battery to the drones that depletes over time with movement, as well as recharging stations placed around the map. As drones fly around picking up and dropping off robots, their battery life will slowly go down from 100% to 0%. When a drone's battery reaches 25% or less, then it will automatically go and find the nearest recharge station. This is a significant add to the simulation because it greatly affects drones' behavior and ultimately changes the system of how robots are scheduled to be picked up. It even makes the simulation more realistic, because drones in real life also need to have their batteries recharged after being used. To implement this extension we used both Factory and Decorator design patterns. We used Decorator to add the battery implementation onto the drones, and then used Factory to create instances of the ChargingStation classes. This extension is not user interactable, so there are no instructions on how to use it.  
-
-////do drones also lose battery when not moving?  
-////logic of what to do when low battery while carrying a robot  
-////how edge cases are resolved (multiple drones and recharge stations)  
-////is recharging incremental or immediate?  
+Our first extension was adding a battery to the drones that depletes over time, as well as recharging stations placed around the map. As drones fly around picking up and dropping off robots, their battery life will slowly go down from 100% to 0%. When a drone is moving it's battery depletes by 5% per second, and when a drone is not moving it's battery depletes by 1% per second. When a drone's battery reaches 30% or less, it will go and find the nearest recharge station to its current location. If the drone is in the middle of a delivery when it's battery reaches below 30%, it will complete the delivery first and then go recharge. Otherwise, if the drone was not in the middle of a delivery, then it will immediately go and recharge. At the recharging stations, drones' batteries are recharged incrementally at a rate of 1% per second. We have included four recharging stations placed around the map, as well as four drones that can complete deliveries. By including multiple recharging stations and drones, we decrease the chances of a drone being stranded on the map with 0% battery, in which case it cannot move at all and therefore cannot recharge itself. This is a significant add to the simulation because it greatly affects drones' behavior and ultimately changes the system of how robots are scheduled to be picked up. It even makes the simulation more realistic, because drones in real life also need to have their batteries recharged after being used. To implement this extension we used both Factory and Decorator design patterns. We used Decorator to add the battery implementation onto the drones, and then used Factory to create instances of the ChargingStation classes. This extension is not user interactable, so there are no instructions on how to use it.  
 
 
 ## New Feature #2 - Data Collection
-Our second extension was to collect various data from running the drone simulation, and print out the data collected to a csv file. The simulation data we collect includes drones' speed, number of trips, fuel efficiency, fuel levels, directions, positions, time elapsed, routing algorithms used, etc. This is a significant add to the simulation because it allows users to see the details behind each successful trip, and can even be used to compare the effectiveness of the different routing algorithms used in the simulation. This is also useful to us, the creators of this extension, as we can use the data we collect to optimize our first extension, Battery Recharging. To implement this extension we used the Singleton design pattern.  
-
-////when does data collection start and end? on gradescope we put that it starts when a trip is scheduled and ends when robot reaches destination  
-////current list of data collected is taken from gradescope,, will need to be edited  
-////does csv file contain info on only one drone trip?  
-////how to access csv file  
-////one csv file or multiple?  
+Our second extension was to collect various data from running the drone simulation, and print out the data collected to a single csv file. The simulation data we collect includes the strategy names used, time elapsed each trip, drone battery life, and distance traveled each trip (where distance is calculated as a Beeline). Data collection starts when a trip is scheduled and ends when the delivery completes. During each trip, the data is put into a vector, which is then written into the csv file when the trip ends. The csv file can be accessed from the 'Team-010-23-homework4' directory under the name 'data.csv'. This is a significant add to the simulation because it allows users to see the details behind each successful trip, and can even be used to compare the effectiveness of the different routing algorithms used in the simulation. This is also useful to us, the creators of this extension, as we can use the data we collect to optimize our first extension, Battery Recharging. To implement this extension we used the Singleton design pattern.  
 
 ## Sprint Retrospective
+Over the course of the project we had roughly 3 sprint periods. What worked well for our sprints was allowing people to work on their own and communicate their updates afterwards. We all had different schedules and constraints with other classes, so flexibility with workload and scheduling was beneficial for the team and overall product.  
 
 
 ## UML Diagrams
+### Extension #1 UML
+![CSCI 3081W Homework 4 Extension #1](https://media.github.umn.edu/user/20875/files/49f23c90-1032-480b-bb55-825490648f5b)
+
+### Extension #2 UML
+![CSCI 3081W Homework 4 Extension #2](https://media.github.umn.edu/user/20875/files/e5ea2fb0-71dd-40c4-a77a-c2f655a48358)
 
 
 ## Docker link
-
 
