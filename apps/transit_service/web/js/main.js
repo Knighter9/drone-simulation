@@ -55,8 +55,10 @@ $( document ).ready(function() {
           var e = data.details;
 
           if (e.id in entities) {
-            entities[e.id]["bat"] = e.bat;
-            entities[e.id]["type"] = e.type;
+            if(e.type === 'drone'){
+                entities[e.id]["bat"] = e.bat;
+                entities[e.id]["type"] = e.type;
+            }
             var model = entities[e.id];
             model.bat = e.bat;
             model.position.x = e.pos[0];
@@ -227,23 +229,10 @@ function displayNotification(data) {
     // msg = data.info;
   // }
 }
-// function updateBatteryLevel(data){
-//   const batteryLevelContainer = document.getElementById('battery-level-container');
-//   const batteryLevelDiv = documen.getElementById('battery-level');
-
-//   if(data.type == "drone"){
-//     batteryLevelContainer.style.display = 'block';
-
-//     batteryLevelDiv.style.width = `${}px`;
-//   }
-//   else {
-//     batteryLevelContainer.style.display = 'none';
-//   }
-// }
 
 function updateBatteryLevel(entity) {
   // Check if the entity is a drone
-  const batteryLevelContainer = document.getElementById('battery-level-container');
+  var batteryLevelContainer = document.getElementById('battery-level-container');
   if (entity.type === 'drone') {
     batteryLevelContainer.style.display = 'block';
     // Get the battery percentage of the drone
@@ -258,6 +247,7 @@ function updateBatteryLevel(entity) {
     // Set the width of the battery bar element
     const batteryBarElement = document.getElementById('battery-level');
     batteryBarElement.style.width = `${batteryBarWidth}px`;
+    updateBatteryColor(batteryPercentage);
   }
   else {
     batteryLevelContainer.style.display = 'none';
@@ -265,8 +255,21 @@ function updateBatteryLevel(entity) {
 }
 
 function calculateBatteryBarWidth(batteryPercentage, maxBarWidth) {
-  return batteryPercentage / 100 * maxBarWidth;
+  return (batteryPercentage / 100) * maxBarWidth;
 }
+
+function updateBatteryColor(batteryPercentage) {
+  var batteryLevel = document.getElementById('battery-level');
+  
+  if (batteryPercentage < 25) {
+    batteryLevel.style.backgroundColor = 'red';
+  } else if (batteryPercentage < 50) {
+    batteryLevel.style.backgroundColor = 'orange';
+  } else {
+    batteryLevel.style.backgroundColor = '#4CAF50';
+  }
+}
+
 
 
 function displayJSON(data) {
@@ -366,7 +369,6 @@ function loadModels() {
       texture.encoding = THREE.sRGBEncoding;
       texture.anisotropy = 16;
       var objmaterial = new THREE.MeshStandardMaterial( { map: texture } );
-
       const texture2 = textureLoader.load(sceneTexture );
       texture.encoding = THREE.sRGBEncoding;
       texture.anisotropy = 16;

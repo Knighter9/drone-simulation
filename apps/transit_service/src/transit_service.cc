@@ -121,7 +121,10 @@ public:
         eventData["details"] = details;
         if(s == "observe"){
             JsonObject updatedDetails = details;
-            updatedDetails["info"] = "Trip scheduled, trip name: " + updatedDetails["name"].ToString();
+            std::string s2 = "Trip scheduled\nTrip name: " + updatedDetails["name"].ToString();
+            s2 += "\nStart Location: \n" + updatedDetails["start"].ToString();
+            s2 += "\nDestination: \n" + updatedDetails["end"].ToString();
+            updatedDetails["info"] = s2;
             eventData["details"] = updatedDetails;
         }
         sendMessage(eventData.ToString());
