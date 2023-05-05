@@ -105,7 +105,6 @@ void BatteryDecorator::Update(double dt, std::vector<IEntity*> scheduler,
         }
     }
 
-    // LORE: What does this do?
     if (toChargingStation) {
         toChargingStation->Move(this, dt);
         if (toChargingStation->IsCompleted()) {
@@ -123,7 +122,6 @@ void BatteryDecorator::Update(double dt, std::vector<IEntity*> scheduler,
             /* Start data stuff when pick up is possible */
             DataCollection::GetInstance().GetStartingBattery(batteryLife);
             
-            // LORE: Does this go?
             entity->Update(dt, scheduler);
             batteryLife -= 0.001;
         } else {
@@ -135,7 +133,6 @@ void BatteryDecorator::Update(double dt, std::vector<IEntity*> scheduler,
         DataCollection::GetInstance().AddData(batteryLife);
     }
 
-    // LORE: What's happening here?
     entity->Update(dt, scheduler);
     batteryLife -= 0.005;
 }
