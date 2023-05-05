@@ -5,7 +5,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include <chrono>
+#include <chrono> // NOLINT [build/c++11]
 #include "BatteryDecorator.h"
 
 /* namespace */
@@ -47,14 +47,23 @@ class DataCollection {
 
   /**
    * @brief Get the starting battery
+   * @param battery The battery level
    * @return Battery level at start of trip
    */
   float GetStartingBattery(float battery) {
     battery_start = battery;
   }
 
+  /**
+   * @brief Gets the strategy name used
+   * @param strategy The name of the strategy
+   */
   void GetStratName(string strategy);
 
+  /**
+   * @brief Gets the distance traveled
+   * @param dist The distance traveled
+   */
   void GetDistance(float dist);
 
  protected:

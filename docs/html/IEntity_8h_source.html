@@ -135,18 +135,20 @@ $(function() {
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
 <div class="line"><a name="l00159"></a><span class="lineno"><a class="line" href="classIEntity.html#aa86b101fa8a5b6dda6841240b05b4ca8">  159</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classIEntity.html#aa86b101fa8a5b6dda6841240b05b4ca8">GetNearestChargingStation</a>() {}</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
-<div class="line"><a name="l00166"></a><span class="lineno"><a class="line" href="classIEntity.html#a40b0caaefcd247250efd2f12a3335a73">  166</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">float</span> <a class="code" href="classIEntity.html#a40b0caaefcd247250efd2f12a3335a73">Random</a>(<span class="keywordtype">float</span> Min, <span class="keywordtype">float</span> Max) {</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keywordflow">return</span> ((<span class="keywordtype">float</span>(rand()) / <span class="keywordtype">float</span>(RAND_MAX)) * (Max - Min)) + Min;</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;  }</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;  <span class="keywordtype">int</span> id;</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;  <span class="keyword">const</span> IGraph* graph;</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;};</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;  <span class="keyword">virtual</span> std::string GetType()<span class="keyword"> const </span>{<span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;}</div>
+<div class="line"><a name="l00167"></a><span class="lineno"><a class="line" href="classIEntity.html#a40b0caaefcd247250efd2f12a3335a73">  167</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">float</span> <a class="code" href="classIEntity.html#a40b0caaefcd247250efd2f12a3335a73">Random</a>(<span class="keywordtype">float</span> Min, <span class="keywordtype">float</span> Max) {</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keywordflow">return</span> ((<span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(rand()) /</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;             <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(RAND_MAX)) * (Max - Min)) + Min;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;  }</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; </div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;  <span class="keywordtype">int</span> id;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;  <span class="keyword">const</span> IGraph* graph;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;};</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160; </div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassIEntity_html_a40b0caaefcd247250efd2f12a3335a73"><div class="ttname"><a href="classIEntity.html#a40b0caaefcd247250efd2f12a3335a73">IEntity::Random</a></div><div class="ttdeci">virtual float Random(float Min, float Max)</div><div class="ttdoc">Generates a random number.</div><div class="ttdef"><b>Definition:</b> IEntity.h:166</div></div>
+<div class="ttc" id="aclassIEntity_html_a40b0caaefcd247250efd2f12a3335a73"><div class="ttname"><a href="classIEntity.html#a40b0caaefcd247250efd2f12a3335a73">IEntity::Random</a></div><div class="ttdeci">virtual float Random(float Min, float Max)</div><div class="ttdoc">Generates a random number.</div><div class="ttdef"><b>Definition:</b> IEntity.h:167</div></div>
 <div class="ttc" id="aclassIEntity_html_a90348881691a37d5c3d63265ed3463b1"><div class="ttname"><a href="classIEntity.html#a90348881691a37d5c3d63265ed3463b1">IEntity::GetAvailability</a></div><div class="ttdeci">virtual bool GetAvailability() const</div><div class="ttdoc">Gets the availability of the entity.</div><div class="ttdef"><b>Definition:</b> IEntity.h:82</div></div>
 <div class="ttc" id="aclassIEntity_html_adf3acdf4764f5ff25f89d7814e39551c"><div class="ttname"><a href="classIEntity.html#adf3acdf4764f5ff25f89d7814e39551c">IEntity::SetAvailability</a></div><div class="ttdeci">virtual void SetAvailability(bool choice)</div><div class="ttdoc">Sets the availability of the entity.</div><div class="ttdef"><b>Definition:</b> IEntity.h:100</div></div>
 <div class="ttc" id="aclassIEntity_html_a2bfa9ab304ff33b252fbd5a707e42995"><div class="ttname"><a href="classIEntity.html#a2bfa9ab304ff33b252fbd5a707e42995">IEntity::GetId</a></div><div class="ttdeci">virtual int GetId() const</div><div class="ttdoc">Gets the ID of the entity.</div><div class="ttdef"><b>Definition:</b> IEntity.h:40</div></div>

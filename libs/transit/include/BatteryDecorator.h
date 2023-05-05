@@ -41,7 +41,7 @@ class BatteryDecorator : public IEntityBaseDecorator {
    * @brief Determines whether the drone needs to be recharged yet. A drone
    * needs to be recharged if it has 25% or less battery life left.
    * @return True if the drone needs to be recharged, false if the drone
-   * does not need to be recharged yet.
+   * does not need to be recharged yet
    */
   bool NeedRecharge();
 
@@ -49,7 +49,7 @@ class BatteryDecorator : public IEntityBaseDecorator {
    * @brief Determines if the drone is fully charged or not. A drone is
    * fully charged if battery = 100
    * @return True if the drone is fully charged, false if the drone is not
-   * fully charged.
+   * fully charged
    */
   bool FullyCharged();
 
@@ -83,14 +83,19 @@ class BatteryDecorator : public IEntityBaseDecorator {
    * @return The battery life of the drone
    */
   float GetBattery() const { return batteryLife; }
-  std::string GetType() const override {return "drone";}
+
+  /**
+   * @brief Gets the type of the object type
+   * @return A string of the object type
+   */
+  std::string GetType() const override { return "drone"; }
 
  private:  // 100 will be fully charged. 0 will be empty.
-  
-  float batteryLife; 
+  float batteryLife;
   bool charging;
   IEntity* nearestChargingStation;
   IStrategy* toChargingStation = nullptr;
 };
 
 #endif
+

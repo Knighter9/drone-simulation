@@ -78,9 +78,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9bad781d709a339fb8d981985b8933dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataCollection.html#a9bad781d709a339fb8d981985b8933dd">AddData</a> (string strategy)</td></tr>
-<tr class="memdesc:a9bad781d709a339fb8d981985b8933dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add data to collection.  <a href="classDataCollection.html#a9bad781d709a339fb8d981985b8933dd">More...</a><br /></td></tr>
-<tr class="separator:a9bad781d709a339fb8d981985b8933dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac25439bf07b805f035d121d07b5966ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataCollection.html#ac25439bf07b805f035d121d07b5966ef">AddData</a> (float battery)</td></tr>
+<tr class="memdesc:ac25439bf07b805f035d121d07b5966ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add data to collection.  <a href="classDataCollection.html#ac25439bf07b805f035d121d07b5966ef">More...</a><br /></td></tr>
+<tr class="separator:ac25439bf07b805f035d121d07b5966ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a534f046df1e11cb7d68eb512aa96dc45"><td class="memItemLeft" align="right" valign="top"><a id="a534f046df1e11cb7d68eb512aa96dc45"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataCollection.html#a534f046df1e11cb7d68eb512aa96dc45">WriteDataToFile</a> ()</td></tr>
 <tr class="memdesc:a534f046df1e11cb7d68eb512aa96dc45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write data to file. <br /></td></tr>
@@ -89,6 +89,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataCollection.html#a94868ab465559a6d8defdb8ea3647f2d">StartTime</a> ()</td></tr>
 <tr class="memdesc:a94868ab465559a6d8defdb8ea3647f2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start timer. <br /></td></tr>
 <tr class="separator:a94868ab465559a6d8defdb8ea3647f2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a830c2690d143caa3125f051b07412c2a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataCollection.html#a830c2690d143caa3125f051b07412c2a">GetStartingBattery</a> (float battery)</td></tr>
+<tr class="memdesc:a830c2690d143caa3125f051b07412c2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the starting battery.  <a href="classDataCollection.html#a830c2690d143caa3125f051b07412c2a">More...</a><br /></td></tr>
+<tr class="separator:a830c2690d143caa3125f051b07412c2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e82dd9eebea1701dc427433e0671f10"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataCollection.html#a8e82dd9eebea1701dc427433e0671f10">GetStratName</a> (string strategy)</td></tr>
+<tr class="memdesc:a8e82dd9eebea1701dc427433e0671f10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the strategy name used.  <a href="classDataCollection.html#a8e82dd9eebea1701dc427433e0671f10">More...</a><br /></td></tr>
+<tr class="separator:a8e82dd9eebea1701dc427433e0671f10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4a9c0430880ae0a404cdfad5162ce49"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataCollection.html#ad4a9c0430880ae0a404cdfad5162ce49">GetDistance</a> (float dist)</td></tr>
+<tr class="memdesc:ad4a9c0430880ae0a404cdfad5162ce49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the distance traveled.  <a href="classDataCollection.html#ad4a9c0430880ae0a404cdfad5162ce49">More...</a><br /></td></tr>
+<tr class="separator:ad4a9c0430880ae0a404cdfad5162ce49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -101,21 +110,27 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:accf695a90d48371d0d973f84a2666d4b"><td class="memItemLeft" align="right" valign="top"><a id="accf695a90d48371d0d973f84a2666d4b"></a>
 vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>strategies</b></td></tr>
 <tr class="separator:accf695a90d48371d0d973f84a2666d4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8af53f9e9a77f429ddfaa79b0e9a2e3e"><td class="memItemLeft" align="right" valign="top"><a id="a8af53f9e9a77f429ddfaa79b0e9a2e3e"></a>
-vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>fuels</b></td></tr>
-<tr class="separator:a8af53f9e9a77f429ddfaa79b0e9a2e3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3313d75465774dcc3b55fbe0b44cc951"><td class="memItemLeft" align="right" valign="top"><a id="a3313d75465774dcc3b55fbe0b44cc951"></a>
+vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>batteries</b></td></tr>
+<tr class="separator:a3313d75465774dcc3b55fbe0b44cc951"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e3a29c14625d691f300d12ebe17d4bb"><td class="memItemLeft" align="right" valign="top"><a id="a5e3a29c14625d691f300d12ebe17d4bb"></a>
 vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>speeds</b></td></tr>
 <tr class="separator:a5e3a29c14625d691f300d12ebe17d4bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a9dafe666de11b3adf870f22d1be6e4"><td class="memItemLeft" align="right" valign="top"><a id="a1a9dafe666de11b3adf870f22d1be6e4"></a>
+vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>distances</b></td></tr>
+<tr class="separator:a1a9dafe666de11b3adf870f22d1be6e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a3433396e8e165f122f35b16d10d766"><td class="memItemLeft" align="right" valign="top"><a id="a5a3433396e8e165f122f35b16d10d766"></a>
 chrono::high_resolution_clock::time_point&#160;</td><td class="memItemRight" valign="bottom"><b>start_time</b></td></tr>
 <tr class="separator:a5a3433396e8e165f122f35b16d10d766"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d03cdccb9a8dacd10f0f849206a53c2"><td class="memItemLeft" align="right" valign="top"><a id="a9d03cdccb9a8dacd10f0f849206a53c2"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>battery_start</b></td></tr>
+<tr class="separator:a9d03cdccb9a8dacd10f0f849206a53c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class is responsible for collecting the data from the simulation. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a9bad781d709a339fb8d981985b8933dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9bad781d709a339fb8d981985b8933dd">&#9670;&nbsp;</a></span>AddData()</h2>
+<a id="ac25439bf07b805f035d121d07b5966ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac25439bf07b805f035d121d07b5966ef">&#9670;&nbsp;</a></span>AddData()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -123,8 +138,8 @@ chrono::high_resolution_clock::time_point&#160;</td><td class="memItemRight" val
         <tr>
           <td class="memname">void DataCollection::AddData </td>
           <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>strategy</em></td><td>)</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>battery</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -134,6 +149,32 @@ chrono::high_resolution_clock::time_point&#160;</td><td class="memItemRight" val
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">strategy</td><td>Strategy name </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad4a9c0430880ae0a404cdfad5162ce49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4a9c0430880ae0a404cdfad5162ce49">&#9670;&nbsp;</a></span>GetDistance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DataCollection::GetDistance </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>dist</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the distance traveled. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dist</td><td>The distance traveled </td></tr>
   </table>
   </dd>
 </dl>
@@ -165,6 +206,67 @@ chrono::high_resolution_clock::time_point&#160;</td><td class="memItemRight" val
 
 <p>Get instance of the collected data. </p>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classDataCollection.html" title="This class is responsible for collecting the data from the simulation.">DataCollection</a> instance </dd></dl>
+
+</div>
+</div>
+<a id="a830c2690d143caa3125f051b07412c2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a830c2690d143caa3125f051b07412c2a">&#9670;&nbsp;</a></span>GetStartingBattery()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float DataCollection::GetStartingBattery </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>battery</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the starting battery. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">battery</td><td>The battery level </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Battery level at start of trip </dd></dl>
+
+</div>
+</div>
+<a id="a8e82dd9eebea1701dc427433e0671f10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e82dd9eebea1701dc427433e0671f10">&#9670;&nbsp;</a></span>GetStratName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DataCollection::GetStratName </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>strategy</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the strategy name used. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">strategy</td><td>The name of the strategy </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

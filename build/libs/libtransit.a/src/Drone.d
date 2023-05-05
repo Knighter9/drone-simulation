@@ -89,7 +89,8 @@
  include/AstarStrategy.h include/PathStrategy.h include/BeelineStrategy.h \
  include/DfsStrategy.h include/DijkstraStrategy.h include/JumpDecorator.h \
  include/CelebrationDecorator.h include/SpinDecorator.h \
- include/DataCollection.h
+ include/DataCollection.h include/BatteryDecorator.h \
+ include/IEntityBaseDecorator.h include/Drone.h
 
 include/Drone.h:
 
@@ -292,3 +293,9 @@ include/CelebrationDecorator.h:
 include/SpinDecorator.h:
 
 include/DataCollection.h:
+
+include/BatteryDecorator.h:
+
+include/IEntityBaseDecorator.h:
+
+include/Drone.h:

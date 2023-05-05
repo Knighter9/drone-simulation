@@ -37,7 +37,7 @@ void Drone::GetNearestEntity(std::vector<IEntity*> scheduler) {
   for (auto entity : scheduler) {
     if (entity->GetAvailability()) {
       float disToEntity = this->position.Distance(entity->GetPosition());
-      DataCollection::GetInstance().GetDistance(disToEntity); // Store distance
+      DataCollection::GetInstance().GetDistance(disToEntity);  // Store distance
       if (disToEntity <= minDis) {
         minDis = disToEntity;
         nearestEntity = entity;
@@ -57,7 +57,7 @@ void Drone::GetNearestEntity(std::vector<IEntity*> scheduler) {
     toRobot = new BeelineStrategy(position, destination);
 
     std::string strat = nearestEntity->GetStrategyName();
-    DataCollection::GetInstance().GetStratName(strat); // Store strategy name
+    DataCollection::GetInstance().GetStratName(strat);  // Store strategy name
 
     if (strat == "astar")
       toFinalDestination =
@@ -82,7 +82,8 @@ void Drone::Update(double dt, std::vector<IEntity*> scheduler) {
 
   if (toRobot) {
     toRobot->Move(this, dt);
-    DataCollection::GetInstance().StartTime(); // Start time for data collection
+    // Start time for data collection
+    DataCollection::GetInstance().StartTime();
     if (toRobot->IsCompleted()) {
       delete toRobot;
       toRobot = nullptr;
@@ -103,7 +104,8 @@ void Drone::Update(double dt, std::vector<IEntity*> scheduler) {
       available = true;
       pickedUp = false;
     }
-    DataCollection::GetInstance().WriteDataToFile(); // Writes data to file after each trip
+    // Writes data to file after each trip
+    DataCollection::GetInstance().WriteDataToFile();
   }
 }
 
