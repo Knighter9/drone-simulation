@@ -10,6 +10,10 @@
 class BatteryDecorator : public IEntityBaseDecorator {
  public:
   /**
+   * @brief Default constructor
+   */
+  BatteryDecorator();
+  /**
    * @brief Construct a new Battery Decorator object
    * @param entity The entity to decorate onto
    */
