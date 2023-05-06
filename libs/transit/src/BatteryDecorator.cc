@@ -17,7 +17,7 @@ bool BatteryDecorator::NeedRecharge() {
 }
 
 bool BatteryDecorator::FullyCharged() {
-    return batteryLife >= 100.0;
+    return batteryLife >= 200;
 }
 
 bool BatteryDecorator::NextPickupPossible(double dt,
@@ -59,7 +59,7 @@ bool BatteryDecorator::NextPickupPossible(double dt,
         // Calculate the maximum distance the drone can travel before
         // needing a recharge
         float totalDistance = distToFinalLocation + minDis;
-        int maxNumberCalls = floor((batteryLife - 20) / 0.05);
+        int maxNumberCalls = floor((batteryLife - 20) / 0.005);
         float maxTotalDistance = maxNumberCalls * entity->GetSpeed() * dt;
 
         return totalDistance <= maxTotalDistance;
@@ -94,14 +94,79 @@ void BatteryDecorator::GetNearestChargingStation(const
                             nearestChargingStation->GetPosition());
     }
 }
+void BatteryDecorator::Update(double dt, std::vector<IEntity*> scheduler,std::vector<IEntity*> chargingStations){
+    // first check to see if drone is moving, we don't want to have to recharge if the drone is currenly picking up a passenger
+    //std::cout << "Battery at: " << batteryLife << std::endl;
+    if(batteryLife <= 0){
+        std::cout << "sorry no movement possible" << std::endl;
+    }
+    else if(toChargingStation){
+        toChargingStation->Move(this,dt);
+        batteryLife = batteryLife - 0.005;
+        if(toChargingStation->IsCompleted()){
+            // make it so we are in a charging state;
+            charging = true;
+            delete toChargingStation;
+            toChargingStation = nullptr;
+        }
+    } 
+    else if(charging){
+        if(FullyCharged()){
+            // set status of charging to be false
+            // update the drones availbility
+            // update the charging stations avalibility
+            // make sure to delete nearestCharging station and then set to nullptr. 
+            charging = false;
+            batteryLife = 200.0;
+            this->entity->SetAvailability(true);
+            nearestChargingStation->SetAvailability(true);
+            nearestChargingStation = nullptr;
+        }
+        else{
+            batteryLife = batteryLife + 1.0;
+           // std::cout << "we are recharing" << std::endl;
+            //std::cout << "Battery at: " << batteryLife << std::endl;
+        }
 
+    }
+    else if(entity->GetAvailability()){// we want to check to see if th drone needs to be charged. 
+        if(NeedRecharge()){
+            //std::cout << "we need to recharge in future we will add logic to send it to charge location" << std::endl;
+            //std::cout << "Battery at: " << batteryLife << std::endl;
+            // get the current location of the nearest charging station.
+            GetNearestChargingStation(chargingStations);
+
+        }
+        // simply hovering drains the battery a lot less than movement
+        // lets do a simple check to see if going to pick up the robot is possible with our current battery state. 
+        else if(NextPickupPossible(dt,scheduler)){
+            DataCollection::GetInstance().GetStartingBattery(batteryLife);
+            entity->Update(dt,scheduler);
+            batteryLife = batteryLife - 0.001;
+        }
+        else{
+            std::cout << "must recharge for upcoming trip." << std::endl;
+            std::cout << "battery at: " << batteryLife << std::endl;
+            GetNearestChargingStation(chargingStations);
+        }
+        //std::cout << "The next pickup should be " << NextPickupPossible(dt,scheduler) << std::endl;
+        //entity->Update(dt,scheduler);
+        //batteryLife = batteryLife - 0.001;
+        DataCollection::GetInstance().AddData(batteryLife);
+        
+        
+    } else {
+        entity->Update(dt,scheduler);
+        batteryLife = batteryLife - 0.005;
+    }
+    
+}
+
+   
+ 
+/*
 void BatteryDecorator::Update(double dt, std::vector<IEntity*> scheduler,
                               std::vector<IEntity*> chargingStations) {
-    if (batteryLife <= 0) {
-        entity->Update(dt, scheduler);
-        return;
-    }
-
     // Charging at station case
     if (charging) {
         if (FullyCharged()) {
@@ -136,7 +201,7 @@ void BatteryDecorator::Update(double dt, std::vector<IEntity*> scheduler,
             GetNearestChargingStation(chargingStations);
             entity->Update(dt, scheduler);
         } else if (NextPickupPossible(dt, scheduler)) {
-            /* Start data stuff when pick up is possible */
+            // Start data stuff when pick up is possible
             DataCollection::GetInstance().GetStartingBattery(batteryLife);
             
             entity->Update(dt, scheduler);
@@ -146,10 +211,11 @@ void BatteryDecorator::Update(double dt, std::vector<IEntity*> scheduler,
                 entity->Update(dt, scheduler);
                 return;
         }
-        /* Add data once dropped off */
+        ///Add data once dropped off 
         DataCollection::GetInstance().AddData(batteryLife);
     }
 
     entity->Update(dt, scheduler);
     batteryLife -= 0.01;
 }
+*/

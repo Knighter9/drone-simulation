@@ -18,7 +18,7 @@ class BatteryDecorator : public IEntityBaseDecorator {
    * @param entity The entity to decorate onto
    */
   BatteryDecorator(IEntity *entity) : IEntityBaseDecorator(entity) {
-    this->batteryLife = 100.0;
+    this->batteryLife = 200.0;
     this->charging = false;
   }
 
