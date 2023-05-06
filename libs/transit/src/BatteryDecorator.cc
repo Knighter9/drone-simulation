@@ -135,7 +135,6 @@ void BatteryDecorator::Update(double dt, std::vector<IEntity*> scheduler,
         if (NeedRecharge()) {
             GetNearestChargingStation(chargingStations);
             entity->Update(dt, scheduler);
-            std::cout << "Battery at: " << batteryLife << std::endl;
         } else if (NextPickupPossible(dt, scheduler)) {
             /* Start data stuff when pick up is possible */
             DataCollection::GetInstance().GetStartingBattery(batteryLife);
@@ -145,8 +144,6 @@ void BatteryDecorator::Update(double dt, std::vector<IEntity*> scheduler,
         } else {
                 GetNearestChargingStation(chargingStations);
                 entity->Update(dt, scheduler);
-                std::cout << "Must recharge for upcoming trip." << std::endl;
-                std::cout << "Battery at: " << batteryLife << std::endl;
                 return;
         }
         /* Add data once dropped off */

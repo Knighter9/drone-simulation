@@ -28,10 +28,7 @@ void DataCollection::WriteDataToFile() {
             batteries[i] << ", " << distances[i+1] << endl;
         }
         file.close();
-        cout << "Data written to file: " << fn << endl;
-    } else {
-        cout << "Unable to open file: " << fn << endl;
-    }
+    } 
 }
 
 void DataCollection::GetStratName(string strategy) {
