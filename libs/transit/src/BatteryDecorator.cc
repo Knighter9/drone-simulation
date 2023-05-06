@@ -89,6 +89,7 @@ void BatteryDecorator::GetNearestChargingStation(const std::vector<IEntity*> cha
 void BatteryDecorator::Update(double dt, std::vector<IEntity*> scheduler,
                               std::vector<IEntity*> chargingStations) {
     if (batteryLife <= 0) {
+        entity->Update(dt, scheduler);
         return;
     }
 
@@ -103,6 +104,8 @@ void BatteryDecorator::Update(double dt, std::vector<IEntity*> scheduler,
         } else {
             batteryLife = std::min(batteryLife + .1, 100.0);
         }
+        entity->Update(dt, scheduler);
+        return;
     }
 
     if (toChargingStation) {
@@ -111,28 +114,39 @@ void BatteryDecorator::Update(double dt, std::vector<IEntity*> scheduler,
             charging = true;
             delete toChargingStation;
             toChargingStation = nullptr;
+            entity->Update(dt, scheduler);
+            return;
         }
+        charging = false;
+        entity->Update(dt, scheduler);
+        return;
     }
 
     if (entity->GetAvailability()) {
         if (NeedRecharge()) {
             GetNearestChargingStation(chargingStations);
-            std::cout << "Battery at: " << batteryLife << std::endl;
-        } else if (NextPickupPossible(dt, scheduler)) {
-            /* Start data stuff when pick up is possible */
-            DataCollection::GetInstance().GetStartingBattery(batteryLife);
-            
             entity->Update(dt, scheduler);
-            batteryLife -= 0.01;
-        } else {
-            GetNearestChargingStation(chargingStations);
-            std::cout << "Must recharge for upcoming trip." << std::endl;
             std::cout << "Battery at: " << batteryLife << std::endl;
+            return;
+        }
+        if (NextPickupPossible(dt, scheduler)) {
+                /* Start data stuff when pick up is possible */
+                DataCollection::GetInstance().GetStartingBattery(batteryLife);
+                
+                entity->Update(dt, scheduler);
+                batteryLife -= 0.05;
+                return;
+        } else {
+                GetNearestChargingStation(chargingStations);
+                entity->Update(dt, scheduler);
+                std::cout << "Must recharge for upcoming trip." << std::endl;
+                std::cout << "Battery at: " << batteryLife << std::endl;
+                return;
         }
         /* Add data once dropped off */
         DataCollection::GetInstance().AddData(batteryLife);
     }
 
     entity->Update(dt, scheduler);
-    batteryLife -= 0.05;
+    batteryLife -= 0.01;
 }
