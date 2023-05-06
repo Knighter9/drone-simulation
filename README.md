@@ -51,11 +51,11 @@ Over the course of the project we had roughly 3 sprint periods. What worked well
 ## Docker link
 
 ## YouTube Video Presentation link and slides
-### Link part 1:
-<iframe width="560" height="315" src="https://www.youtube.com/embed/5YzTRw9BXI0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>  
+### Link part 1 (presentation):
+https://youtu.be/5YzTRw9BXI0  
 
-### Link part 2:
-<iframe width="560" height="315" src="https://www.youtube.com/embed/PmE81Es2yiM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>  
+### Link part 2 (running drone simulation):
+https://youtu.be/PmE81Es2yiM  
 
 ### Slides pdf
 [Drone Simulation Project Extensions.pdf](https://github.umn.edu/umn-csci-3081-S23/Team-010-23-homework4/files/967/Drone.Simulation.Project.Extensions.pdf)
