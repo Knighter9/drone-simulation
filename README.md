@@ -41,13 +41,21 @@ Over the course of the project we had roughly 3 sprint periods. What worked well
 
 ## UML Diagrams
 ### Extension #1 UML
-![CSCI 3081W Homework 4 Extension #1](https://media.github.umn.edu/user/20875/files/7ad228c4-f42c-4514-a577-c381e4d3db4b)
+![CSCI 3081W Homework 4 Extension #1](https://media.github.umn.edu/user/20875/files/7ad228c4-f42c-4514-a577-c381e4d3db4b)  
 
 
 ### Extension #2 UML
-![CSCI 3081W Homework 4 Extension #2 (1)](https://media.github.umn.edu/user/20875/files/56cc6567-4ab3-4bf0-961b-f0b2121ad7d5)
+![CSCI 3081W Homework 4 Extension #2 (1)](https://media.github.umn.edu/user/20875/files/56cc6567-4ab3-4bf0-961b-f0b2121ad7d5)  
 
 
 ## Docker link
 
-## YouTube Video Presentation link
+## YouTube Video Presentation link and slides
+### Link part 1 (presentation):
+https://youtu.be/5YzTRw9BXI0  
+
+### Link part 2 (running drone simulation):
+https://youtu.be/PmE81Es2yiM  
+
+### Slides pdf
+[Drone Simulation Project Extensions.pdf](https://github.umn.edu/umn-csci-3081-S23/Team-010-23-homework4/files/967/Drone.Simulation.Project.Extensions.pdf)
