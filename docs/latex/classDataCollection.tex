@@ -12,14 +12,20 @@ This class is responsible for collecting the data from the simulation.
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{classDataCollection_a9bad781d709a339fb8d981985b8933dd}{Add\+Data}} (string strategy)
+void \mbox{\hyperlink{classDataCollection_ac25439bf07b805f035d121d07b5966ef}{Add\+Data}} (float battery)
 \begin{DoxyCompactList}\small\item\em Add data to collection. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classDataCollection_a534f046df1e11cb7d68eb512aa96dc45}\label{classDataCollection_a534f046df1e11cb7d68eb512aa96dc45}} 
 void \mbox{\hyperlink{classDataCollection_a534f046df1e11cb7d68eb512aa96dc45}{Write\+Data\+To\+File}} ()
 \begin{DoxyCompactList}\small\item\em Write data to file. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classDataCollection_a94868ab465559a6d8defdb8ea3647f2d}\label{classDataCollection_a94868ab465559a6d8defdb8ea3647f2d}} 
 void \mbox{\hyperlink{classDataCollection_a94868ab465559a6d8defdb8ea3647f2d}{Start\+Time}} ()
-\begin{DoxyCompactList}\small\item\em Start timer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Start timer. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classDataCollection_a830c2690d143caa3125f051b07412c2a}{Get\+Starting\+Battery}} (float battery)
+\begin{DoxyCompactList}\small\item\em Get the starting battery. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDataCollection_a8e82dd9eebea1701dc427433e0671f10}{Get\+Strat\+Name}} (string strategy)
+\begin{DoxyCompactList}\small\item\em Gets the strategy name used. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDataCollection_ad4a9c0430880ae0a404cdfad5162ce49}{Get\+Distance}} (float dist)
+\begin{DoxyCompactList}\small\item\em Gets the distance traveled. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -31,14 +37,20 @@ static \mbox{\hyperlink{classDataCollection}{Data\+Collection}} \& \mbox{\hyperl
 \mbox{\Hypertarget{classDataCollection_accf695a90d48371d0d973f84a2666d4b}\label{classDataCollection_accf695a90d48371d0d973f84a2666d4b}} 
 vector$<$ string $>$ {\bfseries strategies}
 \item 
-\mbox{\Hypertarget{classDataCollection_a8af53f9e9a77f429ddfaa79b0e9a2e3e}\label{classDataCollection_a8af53f9e9a77f429ddfaa79b0e9a2e3e}} 
-vector$<$ float $>$ {\bfseries fuels}
+\mbox{\Hypertarget{classDataCollection_a3313d75465774dcc3b55fbe0b44cc951}\label{classDataCollection_a3313d75465774dcc3b55fbe0b44cc951}} 
+vector$<$ float $>$ {\bfseries batteries}
 \item 
 \mbox{\Hypertarget{classDataCollection_a5e3a29c14625d691f300d12ebe17d4bb}\label{classDataCollection_a5e3a29c14625d691f300d12ebe17d4bb}} 
 vector$<$ float $>$ {\bfseries speeds}
 \item 
+\mbox{\Hypertarget{classDataCollection_a1a9dafe666de11b3adf870f22d1be6e4}\label{classDataCollection_a1a9dafe666de11b3adf870f22d1be6e4}} 
+vector$<$ float $>$ {\bfseries distances}
+\item 
 \mbox{\Hypertarget{classDataCollection_a5a3433396e8e165f122f35b16d10d766}\label{classDataCollection_a5a3433396e8e165f122f35b16d10d766}} 
 chrono\+::high\+\_\+resolution\+\_\+clock\+::time\+\_\+point {\bfseries start\+\_\+time}
+\item 
+\mbox{\Hypertarget{classDataCollection_a9d03cdccb9a8dacd10f0f849206a53c2}\label{classDataCollection_a9d03cdccb9a8dacd10f0f849206a53c2}} 
+float {\bfseries battery\+\_\+start}
 \end{DoxyCompactItemize}
 
 
@@ -46,11 +58,11 @@ chrono\+::high\+\_\+resolution\+\_\+clock\+::time\+\_\+point {\bfseries start\+\
 This class is responsible for collecting the data from the simulation. 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classDataCollection_a9bad781d709a339fb8d981985b8933dd}\label{classDataCollection_a9bad781d709a339fb8d981985b8933dd}} 
+\mbox{\Hypertarget{classDataCollection_ac25439bf07b805f035d121d07b5966ef}\label{classDataCollection_ac25439bf07b805f035d121d07b5966ef}} 
 \index{DataCollection@{DataCollection}!AddData@{AddData}}
 \index{AddData@{AddData}!DataCollection@{DataCollection}}
 \doxysubsubsection{\texorpdfstring{AddData()}{AddData()}}
-{\footnotesize\ttfamily void Data\+Collection\+::\+Add\+Data (\begin{DoxyParamCaption}\item[{string}]{strategy }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Data\+Collection\+::\+Add\+Data (\begin{DoxyParamCaption}\item[{float}]{battery }\end{DoxyParamCaption})}
 
 
 
@@ -59,6 +71,21 @@ Add data to collection.
 
 \begin{DoxyParams}{Parameters}
 {\em strategy} & Strategy name \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDataCollection_ad4a9c0430880ae0a404cdfad5162ce49}\label{classDataCollection_ad4a9c0430880ae0a404cdfad5162ce49}} 
+\index{DataCollection@{DataCollection}!GetDistance@{GetDistance}}
+\index{GetDistance@{GetDistance}!DataCollection@{DataCollection}}
+\doxysubsubsection{\texorpdfstring{GetDistance()}{GetDistance()}}
+{\footnotesize\ttfamily void Data\+Collection\+::\+Get\+Distance (\begin{DoxyParamCaption}\item[{float}]{dist }\end{DoxyParamCaption})}
+
+
+
+Gets the distance traveled. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dist} & The distance traveled \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classDataCollection_ade48ebae9ad3922d7f173aa30003bba9}\label{classDataCollection_ade48ebae9ad3922d7f173aa30003bba9}} 
@@ -74,6 +101,39 @@ Get instance of the collected data.
 \begin{DoxyReturn}{Returns}
 \mbox{\hyperlink{classDataCollection}{Data\+Collection}} instance 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classDataCollection_a830c2690d143caa3125f051b07412c2a}\label{classDataCollection_a830c2690d143caa3125f051b07412c2a}} 
+\index{DataCollection@{DataCollection}!GetStartingBattery@{GetStartingBattery}}
+\index{GetStartingBattery@{GetStartingBattery}!DataCollection@{DataCollection}}
+\doxysubsubsection{\texorpdfstring{GetStartingBattery()}{GetStartingBattery()}}
+{\footnotesize\ttfamily float Data\+Collection\+::\+Get\+Starting\+Battery (\begin{DoxyParamCaption}\item[{float}]{battery }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the starting battery. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em battery} & The battery level \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Battery level at start of trip 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDataCollection_a8e82dd9eebea1701dc427433e0671f10}\label{classDataCollection_a8e82dd9eebea1701dc427433e0671f10}} 
+\index{DataCollection@{DataCollection}!GetStratName@{GetStratName}}
+\index{GetStratName@{GetStratName}!DataCollection@{DataCollection}}
+\doxysubsubsection{\texorpdfstring{GetStratName()}{GetStratName()}}
+{\footnotesize\ttfamily void Data\+Collection\+::\+Get\+Strat\+Name (\begin{DoxyParamCaption}\item[{string}]{strategy }\end{DoxyParamCaption})}
+
+
+
+Gets the strategy name used. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em strategy} & The name of the strategy \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

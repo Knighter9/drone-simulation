@@ -11,8 +11,7 @@ Represents a decorator for the drone batteries.
 
 
 
-Inheritance diagram for Battery\+Decorator\+:
-\nopagebreak
+Inheritance diagram for Battery\+Decorator\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -21,8 +20,7 @@ Inheritance diagram for Battery\+Decorator\+:
 \end{figure}
 
 
-Collaboration diagram for Battery\+Decorator\+:
-\nopagebreak
+Collaboration diagram for Battery\+Decorator\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -32,6 +30,9 @@ Collaboration diagram for Battery\+Decorator\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{classBatteryDecorator_a7838a407ceab43b7ccf963a4b4919c3c}\label{classBatteryDecorator_a7838a407ceab43b7ccf963a4b4919c3c}} 
+\mbox{\hyperlink{classBatteryDecorator_a7838a407ceab43b7ccf963a4b4919c3c}{Battery\+Decorator}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classBatteryDecorator_a413f097a59e280c888fdc2d053c09a4a}{Battery\+Decorator}} (\mbox{\hyperlink{classIEntity}{I\+Entity}} $\ast$entity)
 \begin{DoxyCompactList}\small\item\em Construct a new Battery Decorator object. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classBatteryDecorator_a0036d03d5fc869eb39e55734d1e5bb87}\label{classBatteryDecorator_a0036d03d5fc869eb39e55734d1e5bb87}} 
@@ -48,7 +49,11 @@ void \mbox{\hyperlink{classBatteryDecorator_a4b963a9605034dc8a5bd3afaff4410f4}{S
 void \mbox{\hyperlink{classBatteryDecorator_a98d7a58a133378e1e14cc744b48622fe}{Get\+Nearest\+Charging\+Station}} (std\+::vector$<$ \mbox{\hyperlink{classIEntity}{I\+Entity}} $\ast$ $>$ charging\+Stations)
 \begin{DoxyCompactList}\small\item\em Gets the nearest charging station to the drone. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classBatteryDecorator_a634f859f7db24cc1b04da5e7e800ad23}{Next\+Pickup\+Possible}} (double dt, std\+::vector$<$ \mbox{\hyperlink{classIEntity}{I\+Entity}} $\ast$ $>$ scheduler)
-\begin{DoxyCompactList}\small\item\em Determines if the drone can pick up the next scheduled robot. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Determines if the drone can pick up the next scheduled robot. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classBatteryDecorator_afd178c875ec8467cf42377695124116f}{Get\+Battery}} () const
+\begin{DoxyCompactList}\small\item\em Gets the battery life of the drone. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classBatteryDecorator_a741a17e02a2ddf45a9a9c4d1a1d310a4}{Get\+Type}} () const override
+\begin{DoxyCompactList}\small\item\em Gets the type of the object type. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
 
@@ -85,7 +90,20 @@ Construct a new Battery Decorator object.
 Determines if the drone is fully charged or not. A drone is fully charged if battery = 100. 
 
 \begin{DoxyReturn}{Returns}
-True if the drone is fully charged, false if the drone is not fully charged. 
+True if the drone is fully charged, false if the drone is not fully charged 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBatteryDecorator_afd178c875ec8467cf42377695124116f}\label{classBatteryDecorator_afd178c875ec8467cf42377695124116f}} 
+\index{BatteryDecorator@{BatteryDecorator}!GetBattery@{GetBattery}}
+\index{GetBattery@{GetBattery}!BatteryDecorator@{BatteryDecorator}}
+\doxysubsubsection{\texorpdfstring{GetBattery()}{GetBattery()}}
+{\footnotesize\ttfamily float Battery\+Decorator\+::\+Get\+Battery (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the battery life of the drone. 
+
+\begin{DoxyReturn}{Returns}
+The battery life of the drone 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classBatteryDecorator_a98d7a58a133378e1e14cc744b48622fe}\label{classBatteryDecorator_a98d7a58a133378e1e14cc744b48622fe}} 
 \index{BatteryDecorator@{BatteryDecorator}!GetNearestChargingStation@{GetNearestChargingStation}}
@@ -102,6 +120,23 @@ Gets the nearest charging station to the drone.
 {\em charging\+Stations} & The vector of charging stations in the physical system \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{classBatteryDecorator_a741a17e02a2ddf45a9a9c4d1a1d310a4}\label{classBatteryDecorator_a741a17e02a2ddf45a9a9c4d1a1d310a4}} 
+\index{BatteryDecorator@{BatteryDecorator}!GetType@{GetType}}
+\index{GetType@{GetType}!BatteryDecorator@{BatteryDecorator}}
+\doxysubsubsection{\texorpdfstring{GetType()}{GetType()}}
+{\footnotesize\ttfamily std\+::string Battery\+Decorator\+::\+Get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the type of the object type. 
+
+\begin{DoxyReturn}{Returns}
+A string of the object type 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classIEntity}{I\+Entity}}.
+
 \mbox{\Hypertarget{classBatteryDecorator_a2bd9a6ba2d068ef63aab97c40a197c87}\label{classBatteryDecorator_a2bd9a6ba2d068ef63aab97c40a197c87}} 
 \index{BatteryDecorator@{BatteryDecorator}!NeedRecharge@{NeedRecharge}}
 \index{NeedRecharge@{NeedRecharge}!BatteryDecorator@{BatteryDecorator}}
@@ -113,7 +148,7 @@ Gets the nearest charging station to the drone.
 Determines whether the drone needs to be recharged yet. A drone needs to be recharged if it has 25\% or less battery life left. 
 
 \begin{DoxyReturn}{Returns}
-True if the drone needs to be recharged, false if the drone does not need to be recharged yet. 
+True if the drone needs to be recharged, false if the drone does not need to be recharged yet 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classBatteryDecorator_a634f859f7db24cc1b04da5e7e800ad23}\label{classBatteryDecorator_a634f859f7db24cc1b04da5e7e800ad23}} 
 \index{BatteryDecorator@{BatteryDecorator}!NextPickupPossible@{NextPickupPossible}}

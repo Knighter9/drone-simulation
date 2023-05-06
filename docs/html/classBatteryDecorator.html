@@ -96,6 +96,10 @@ Collaboration diagram for BatteryDecorator:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a7838a407ceab43b7ccf963a4b4919c3c"><td class="memItemLeft" align="right" valign="top"><a id="a7838a407ceab43b7ccf963a4b4919c3c"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBatteryDecorator.html#a7838a407ceab43b7ccf963a4b4919c3c">BatteryDecorator</a> ()</td></tr>
+<tr class="memdesc:a7838a407ceab43b7ccf963a4b4919c3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor. <br /></td></tr>
+<tr class="separator:a7838a407ceab43b7ccf963a4b4919c3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a413f097a59e280c888fdc2d053c09a4a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBatteryDecorator.html#a413f097a59e280c888fdc2d053c09a4a">BatteryDecorator</a> (<a class="el" href="classIEntity.html">IEntity</a> *entity)</td></tr>
 <tr class="memdesc:a413f097a59e280c888fdc2d053c09a4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new Battery Decorator object.  <a href="classBatteryDecorator.html#a413f097a59e280c888fdc2d053c09a4a">More...</a><br /></td></tr>
 <tr class="separator:a413f097a59e280c888fdc2d053c09a4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -121,6 +125,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a634f859f7db24cc1b04da5e7e800ad23"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBatteryDecorator.html#a634f859f7db24cc1b04da5e7e800ad23">NextPickupPossible</a> (double dt, std::vector&lt; <a class="el" href="classIEntity.html">IEntity</a> * &gt; scheduler)</td></tr>
 <tr class="memdesc:a634f859f7db24cc1b04da5e7e800ad23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if the drone can pick up the next scheduled robot.  <a href="classBatteryDecorator.html#a634f859f7db24cc1b04da5e7e800ad23">More...</a><br /></td></tr>
 <tr class="separator:a634f859f7db24cc1b04da5e7e800ad23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd178c875ec8467cf42377695124116f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBatteryDecorator.html#afd178c875ec8467cf42377695124116f">GetBattery</a> () const</td></tr>
+<tr class="memdesc:afd178c875ec8467cf42377695124116f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the battery life of the drone.  <a href="classBatteryDecorator.html#afd178c875ec8467cf42377695124116f">More...</a><br /></td></tr>
+<tr class="separator:afd178c875ec8467cf42377695124116f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a741a17e02a2ddf45a9a9c4d1a1d310a4"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBatteryDecorator.html#a741a17e02a2ddf45a9a9c4d1a1d310a4">GetType</a> () const override</td></tr>
+<tr class="memdesc:a741a17e02a2ddf45a9a9c4d1a1d310a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the type of the object type.  <a href="classBatteryDecorator.html#a741a17e02a2ddf45a9a9c4d1a1d310a4">More...</a><br /></td></tr>
+<tr class="separator:a741a17e02a2ddf45a9a9c4d1a1d310a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classIEntityBaseDecorator"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classIEntityBaseDecorator')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classIEntityBaseDecorator.html">IEntityBaseDecorator</a></td></tr>
 <tr class="memitem:a210139d90d0e096c45dadbbe14844b1c inherit pub_methods_classIEntityBaseDecorator"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIEntityBaseDecorator.html#a210139d90d0e096c45dadbbe14844b1c">IEntityBaseDecorator</a> (<a class="el" href="classIEntity.html">IEntity</a> *entity)</td></tr>
 <tr class="memdesc:a210139d90d0e096c45dadbbe14844b1c inherit pub_methods_classIEntityBaseDecorator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classIEntity.html" title="Represents an entity in a physical system. An IEntity object has a unique ID, a position,...">IEntity</a> Decorator object.  <a href="classIEntityBaseDecorator.html#a210139d90d0e096c45dadbbe14844b1c">More...</a><br /></td></tr>
@@ -271,7 +281,35 @@ const IGraph *&#160;</td><td class="memItemRight" valign="bottom"><b>graph</b></
 </div><div class="memdoc">
 
 <p>Determines if the drone is fully charged or not. A drone is fully charged if battery = 100. </p>
-<dl class="section return"><dt>Returns</dt><dd>True if the drone is fully charged, false if the drone is not fully charged. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the drone is fully charged, false if the drone is not fully charged </dd></dl>
+
+</div>
+</div>
+<a id="afd178c875ec8467cf42377695124116f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd178c875ec8467cf42377695124116f">&#9670;&nbsp;</a></span>GetBattery()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float BatteryDecorator::GetBattery </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the battery life of the drone. </p>
+<dl class="section return"><dt>Returns</dt><dd>The battery life of the drone </dd></dl>
 
 </div>
 </div>
@@ -301,6 +339,36 @@ const IGraph *&#160;</td><td class="memItemRight" valign="bottom"><b>graph</b></
 
 </div>
 </div>
+<a id="a741a17e02a2ddf45a9a9c4d1a1d310a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a741a17e02a2ddf45a9a9c4d1a1d310a4">&#9670;&nbsp;</a></span>GetType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string BatteryDecorator::GetType </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the type of the object type. </p>
+<dl class="section return"><dt>Returns</dt><dd>A string of the object type </dd></dl>
+
+<p>Reimplemented from <a class="el" href="classIEntity.html">IEntity</a>.</p>
+
+</div>
+</div>
 <a id="a2bd9a6ba2d068ef63aab97c40a197c87"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2bd9a6ba2d068ef63aab97c40a197c87">&#9670;&nbsp;</a></span>NeedRecharge()</h2>
 
@@ -317,7 +385,7 @@ const IGraph *&#160;</td><td class="memItemRight" valign="bottom"><b>graph</b></
 </div><div class="memdoc">
 
 <p>Determines whether the drone needs to be recharged yet. A drone needs to be recharged if it has 25% or less battery life left. </p>
-<dl class="section return"><dt>Returns</dt><dd>True if the drone needs to be recharged, false if the drone does not need to be recharged yet. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the drone needs to be recharged, false if the drone does not need to be recharged yet </dd></dl>
 
 </div>
 </div>

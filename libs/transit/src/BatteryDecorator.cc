@@ -20,13 +20,15 @@ bool BatteryDecorator::FullyCharged() {
     return batteryLife >= 100.0;
 }
 
-bool BatteryDecorator::NextPickupPossible(double dt, const std::vector<IEntity*> scheduler) {
+bool BatteryDecorator::NextPickupPossible(double dt,
+                       const std::vector<IEntity*> scheduler) {
     // Find the closest entity in the scheduler
     float minDis = std::numeric_limits<float>::max();
     IEntity* closestEntity = nullptr;
     for (auto entity : scheduler) {
         if (entity->GetAvailability()) {
-            float disToEntity = this->entity->GetPosition().Distance(entity->GetPosition());
+            float disToEntity = this->entity->GetPosition().Distance(
+                                entity->GetPosition());
             if (disToEntity <= minDis) {
                 minDis = disToEntity;
                 closestEntity = entity;
@@ -42,16 +44,20 @@ bool BatteryDecorator::NextPickupPossible(double dt, const std::vector<IEntity*>
         Vector3 desVec = closestEntity->GetDestination();
 
         // Get the path using the A* algorithm
-        path = graph->GetPath({startVec[0], startVec[1], startVec[2]}, {desVec[0], desVec[1], desVec[2]}, AStar::Default());
+        path = graph->GetPath({startVec[0], startVec[1], startVec[2]},
+                              {desVec[0], desVec[1], desVec[2]},
+                              AStar::Default());
 
         // Calculate the distance to the final location
         for (int i = 0; i < path.size() - 1; i++) {
             Vector3 curr = Vector3(path[i][0], path[i][1], path[i][2]);
-            Vector3 next = Vector3(path[i + 1][0], path[i + 1][1], path[i + 1][2]);
+            Vector3 next = Vector3(path[i + 1][0], path[i + 1][1],
+                                   path[i + 1][2]);
             distToFinalLocation += curr.Distance(next);
         }
 
-        // Calculate the maximum distance the drone can travel before needing a recharge
+        // Calculate the maximum distance the drone can travel before
+        // needing a recharge
         float totalDistance = distToFinalLocation + minDis;
         int maxNumberCalls = floor((batteryLife - 20) / 0.05);
         float maxTotalDistance = maxNumberCalls * entity->GetSpeed() * dt;
@@ -63,12 +69,14 @@ bool BatteryDecorator::NextPickupPossible(double dt, const std::vector<IEntity*>
     return true;
 }
 
-void BatteryDecorator::GetNearestChargingStation(const std::vector<IEntity*> chargingStations) {
+void BatteryDecorator::GetNearestChargingStation(const
+                       std::vector<IEntity*> chargingStations) {
     // Find the nearest charging station
     float minDis = std::numeric_limits<float>::max();
     for (auto station : chargingStations) {
         if (station->GetAvailability()) {
-            float disToEntity = this->entity->GetPosition().Distance(station->GetPosition());
+            float disToEntity = this->entity->GetPosition().Distance(
+                                station->GetPosition());
             if (disToEntity <= minDis) {
                 minDis = disToEntity;
                 nearestChargingStation = station;
@@ -82,7 +90,8 @@ void BatteryDecorator::GetNearestChargingStation(const std::vector<IEntity*> cha
         entity->SetAvailability(false);
 
         // Create a new strategy to move to the charging station
-        toChargingStation = new BeelineStrategy(entity->GetPosition(), nearestChargingStation->GetPosition());
+        toChargingStation = new BeelineStrategy(entity->GetPosition(),
+                            nearestChargingStation->GetPosition());
     }
 }
 
@@ -127,15 +136,12 @@ void BatteryDecorator::Update(double dt, std::vector<IEntity*> scheduler,
             GetNearestChargingStation(chargingStations);
             entity->Update(dt, scheduler);
             std::cout << "Battery at: " << batteryLife << std::endl;
-            return;
-        }
-        if (NextPickupPossible(dt, scheduler)) {
-                /* Start data stuff when pick up is possible */
-                DataCollection::GetInstance().GetStartingBattery(batteryLife);
-                
-                entity->Update(dt, scheduler);
-                batteryLife -= 0.05;
-                return;
+        } else if (NextPickupPossible(dt, scheduler)) {
+            /* Start data stuff when pick up is possible */
+            DataCollection::GetInstance().GetStartingBattery(batteryLife);
+            
+            entity->Update(dt, scheduler);
+            batteryLife -= 0.01;
         } else {
                 GetNearestChargingStation(chargingStations);
                 entity->Update(dt, scheduler);

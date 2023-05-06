@@ -49,7 +49,6 @@ void SimulationModel::CreateEntity(JsonObject& entity) {
   // Call AddEntity to add it to the view
   controller.AddEntity(*myNewEntity);
   entities.push_back(myNewEntity);
-
 }
 
 /// Schedules a trip for an object in the scene
@@ -73,7 +72,7 @@ void SimulationModel::ScheduleTrip(JsonObject& details) {
     }
   }
   controller.SendEventToView("TripScheduled", details);
-  controller.SendEventToView("observe", details); // send to frontend
+  controller.SendEventToView("observe", details);  // send to frontend
 }
 
 /// Updates the simulation
