@@ -236,7 +236,7 @@ function updateBatteryLevel(entity) {
   if (entity.type === 'drone') {
     batteryLevelContainer.style.display = 'block';
     // Get the battery percentage of the drone
-    const batteryPercentage = entity.bat;
+    const batteryPercentage = entity.bat / 2;
 
     // Define the maximum width of the battery bar
     const maxBarWidth = 200; // adjust this value based on the width of #battery-level-container
