@@ -59,7 +59,7 @@ bool BatteryDecorator::NextPickupPossible(double dt,
         // Calculate the maximum distance the drone can travel before
         // needing a recharge
         float totalDistance = distToFinalLocation + minDis;
-        int maxNumberCalls = floor((batteryLife - 20) / 0.005);
+        int maxNumberCalls = floor((batteryLife - 20) / 0.01);
         float maxTotalDistance = maxNumberCalls * entity->GetSpeed() * dt;
 
         return totalDistance <= maxTotalDistance;
@@ -102,7 +102,7 @@ void BatteryDecorator::Update(double dt, std::vector<IEntity*> scheduler,std::ve
     }
     else if(toChargingStation){
         toChargingStation->Move(this,dt);
-        batteryLife = batteryLife - 0.005;
+        batteryLife = batteryLife - 0.01;
         if(toChargingStation->IsCompleted()){
             // make it so we are in a charging state;
             charging = true;
@@ -123,7 +123,7 @@ void BatteryDecorator::Update(double dt, std::vector<IEntity*> scheduler,std::ve
             nearestChargingStation = nullptr;
         }
         else{
-            batteryLife = batteryLife + 1.0;
+            batteryLife = batteryLife + 5.0;
            // std::cout << "we are recharing" << std::endl;
             //std::cout << "Battery at: " << batteryLife << std::endl;
         }
@@ -142,7 +142,7 @@ void BatteryDecorator::Update(double dt, std::vector<IEntity*> scheduler,std::ve
         else if(NextPickupPossible(dt,scheduler)){
             DataCollection::GetInstance().GetStartingBattery(batteryLife);
             entity->Update(dt,scheduler);
-            batteryLife = batteryLife - 0.001;
+            batteryLife = batteryLife - 0.015;
         }
         else{
             std::cout << "must recharge for upcoming trip." << std::endl;
@@ -157,7 +157,7 @@ void BatteryDecorator::Update(double dt, std::vector<IEntity*> scheduler,std::ve
         
     } else {
         entity->Update(dt,scheduler);
-        batteryLife = batteryLife - 0.005;
+        batteryLife = batteryLife - 0.01;
     }
     
 }
